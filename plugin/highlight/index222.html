@@ -17,12 +17,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<style type="text/css">
-			.noUppercase
-			{
-				text-transform: none !important;
-			}
-		</style>
+
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -41,309 +36,15 @@
 			<div class="slides">
 
 				<section>
-					<h1>High Performance JS & CSS</h1>
-					<h3>JS and CSS that tastes good</h3>
+					<h1>Reveal.js</h1>
+					<h3>HTML Presentations Made Easy</h3>
 					<p>
-						<small>Presented by <a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a></small>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
 					</p>
 				</section>
+
 				<section>
-					
-					<section>
-						<h1 class="noUppercase">Be reach</h1>						
-						<p>.2+.4</p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Add some more</h1>
-						<p>[]+[]</p>
-						<a href="https://www.destroyallsoftware.com/talks/wat">Gary Bernhardth CodeMash 2012</a>
-					</section>
-					<section>
-						<h1 class="noUppercase">Add some more</h1>
-						<p>[]+{}</p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Add some more</h1>
-						<p>{}+[]</p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Add some more</h1>
-						<p>{}+{}</p>
-					</section>
-				</section>
-				
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Type related</h2>
-						<p>
-							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/top-10-things-that-javascript-got-wrong/">10 things</a>
-
-							add some more here <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>typeof Null //object</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>typeof NaN // number
-							NaN == Nan</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>NaN === NaN</h2>
-						
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-				
-				<section>
-					<section>
-						<h2>Daily Life</h2>						
-						<pre><code contenteditable>
-var tinyMessage = 'Trust me, i started one line' + 
-		'Designer told me he wants little more' + 
-		'I added little more' +
-		'Manager said, this is not enough' +
-		"He didn't said what to add" +
-		'Just said add' +
-		"I didn't know what to add" +
-		'so i added a slice of pizza' +
-		'Client said this is stupid' +
-		'Manager said, client is right';
-					</code></pre>
-					<a href="https://developers.google.com/speed/articles/optimizing-javascript"> optimize javascript </a>
-					</section>
-					<section>
-						<h2>Instead do</h2>
-						<pre><code contenteditable>
-var tinyMessage = ['Trust me, i started one line', 
-		'Designer told me he wants little more', 
-		'I added little more',
-		'Manager said, this is not enough',
-		"He didn't said what to add",
-		'Just said add',
-		"I didn't know what to add",
-		'so i added a slice of pizza',
-		'Client said this is stupid',
-		'Manager said, client is right'].join();
-					</code></pre>						
-					</section>
-					<section>
-						<h2>Insted</h2>
-						<pre><code contenteditable>
-var fibonacciStr = 'First 20 Fibonacci Numbers';
-	
-for (var i = 0; i < 20; i++) {
-	fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
-}
-						</code></pre>
-					</section>
-					<section>
-						<h2>Do</h2>
-						<pre><code contenteditable>
-var strBuilder = ['First 20 fibonacci numbers:'];
-
-for (var i = 0; i < 20; i++) {
-  strBuilder.push(i, ' = ', fibonacci(i));
-}
-
-var fibonacciStr = strBuilder.join('');
-						</code></pre>
-					</section>
-					<section>
-						<h2>Don't</h2>
-						<pre><code contenteditable>
-baz.Bar = function() {
-  // constructor body
-  this.foo = function() {
-  // method body
-  };
-}
-						</code></pre>
-					</section>
-					<section>
-						<h2>Do</h2>
-						<pre><code contenteditable>
-baz.Bar = function() {
-  // constructor body
-};
-
-baz.Bar.prototype.foo = function() {
-  // method body
-};
-						</code></pre>
-					</section>
-					<section>
-						<h2>Don't</h2>
-						<pre><code contenteditable>
-foo.Bar = function() {
-  this.prop1_ = 4;
-  this.prop2_ = true;
-  this.prop3_ = [];
-  this.prop4_ = 'blah';
-};
-						</code></pre>
-					</section>
-					<section>
-						<h2>Do</h2>
-						<pre><code contenteditable>
-foo.Bar = function() {
-  this.prop3_ = [];
-};
-
-foo.Bar.prototype.prop1_ = 4;
-
-foo.Bar.prototype.prop2_ = true;
-
-foo.Bar.prototype.prop4_ = 'blah';
-						</code></pre>
-					</section>
-					<section>
-						<h2>Don't</h2>
-						<pre><code contenteditable>
-function setupAlertTimeout() {
-  var msg = 'Message to alert';
-  window.setTimeout(function() { alert(msg); }, 100);
-}
-
-is slower than:
-function setupAlertTimeout() {
-  window.setTimeout(function() {
-    var msg = 'Message to alert';
-    alert(msg);
-  }, 100);
-}
-
-which is slower than:
-function alertMsg() {
-  var msg = 'Message to alert';
-  alert(msg);
-}
-
-function setupAlertTimeout() {
-  window.setTimeout(alertMsg, 100);
-}
-						</code></pre>
-					</section>
-					<section>
-						<h2>From Google</h2>
-						<pre><code contenteditable>
-							
-						</code></pre>
-					</section>
-					
-
-				</section>
-				<section>					
-					<section>
-						<h1 class="noUppercase">How Browser works</h1>
-						<h3>Put the browser Components</h3>			
-						<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">html5rock</a>		
-						<p></p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Rendering Engines</h1>
-						<p>Main Flow of Rendering Engine</p>
-						<p>Add the image and also talk about the parts</p>
-						
-					</section>
-					<section>
-						<h1 class="noUppercase">Content Tree or DOM tree</h1>
-						<p></p>
-					</section>
-					<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="javascript" contenteditable>
-<!-- <html>
-  <body>
-    <p>
-      Hello World
-    </p>
-    <div> <img src="example.png"/></div>
-  </body>
-</html>
- -->					</code></pre>
-					<p> <a href="">html5 rock</a>.</p>
-				</section>
-				<section>
-						<h1 class="noUppercase">Put Dom Tree image</h1>
-						<p></p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Render Tree</h1>
-						<p></p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Layout of the render tree</h1>
-						<p></p>
-					</section>
-					<section>
-						<h1 class="noUppercase">Painting render tree</h1>
-						<p></p>
-					</section>
-
-				</section>
-					<section>
-						<h1 class="noUppercase">Script Defer or Async </h1>
-						<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">html5 rock </a>
-						<p></p>
-					</section>
-					<section>
-						<p>li closing and validating html</p>
-						<h1 class="noUppercase">How Browser render</h1>
-						<ul>
-							<li>Browser changes everyday.</li>
-							<li>Must validate best practices. Things are changes everyday</li>
-							<li>type url: network>loader>tag soup>html parser</li>
-							<li>DOM tree from html</li>
-							<li>If you have well</li>
-							<li>Parser guess when u forget a closing tag</li>
-							<li>forget closing div and p </li>
-							<li>How html tree is different: see the DOM tree</li>
-							<li>validate html</li>
-
-						</ul>
-					</section>
-					<section>
-						<h1 class="noUppercase">Minify CSS</h1>
-						<li>Browser will not show anything untill u have any css</li>
-						<li>Minify helps to download it quicly</li>
-						<li>Copied from css rule</li>
-						<li>Dom Tree + style structure => Render Tree</li>
-						<li>Match up with </li>
-						<li>Specificity: </li>
-						<li>CSS Caveats</li>
-						<li>Display: none is making big impact on the render tree</li>
-						<li>webkit main flow</li>
-					</section>
-					<section>
-						<h1 class="noUppercase">DOM Manipulation</h1>
-						<li>Rapint only</li>
-						<li>Color or visibility change: just painting and display</li>
-						<li>ReFlow or relayout: you are changing the positioning: now effect layout and render tree</li>
-						<li>Display: none=> change the render tree</li>
-						<li>Display: none and visibility hidden: demo on dev tool and add item stuff</li>
-					</section>
-					<section>
-						<h1 class="noUppercase">Chrome dev tool</h1>
-						<li>Show paint rectange: on yahoo page: two rectangle when u move from a link</li>
-
-					</section>
-					
-				<section>
-					<h2>uSE Strict Mode in JS file or even inside function</h2>
-					<a href="http://johnkpaul.github.io/presentations/ncdevcon/2013/javascript-bad-parts/">NC dev link with run</a>
-					<a href="http://johnkpaul.github.io/presentations/pghtechfest/javascript-bad-parts"> github io link</a>
+					<h2>Heads Up</h2>
 					<p>
 						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
 						support for CSS 3D transforms to see it in its full glory.
@@ -467,7 +168,7 @@ function setupAlertTimeout() {
 					</p>
 					<p>
 						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code class="javascript">&lt;head&gt;</code> using a <code class="javascript">&lt;link&gt;</code>.
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
 						</small>
 					</p>
 				</section>
@@ -476,7 +177,7 @@ function setupAlertTimeout() {
 					<section data-state="alert">
 						<h2>Global State</h2>
 						<p>
-							Set <code class="javascript">data-state="something"</code> on a slide and <code class="javascript">"something"</code>
+							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
 							will be added as a class to the document element when the slide is open. This lets you
 							apply broader style changes, like switching the background.
 						</p>
@@ -501,9 +202,9 @@ function setupAlertTimeout() {
 				<section data-state="customevent">
 					<h2>Custom Events</h2>
 					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code class="javascript">data-state</code> name.
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
 					</p>
-					<pre><code class="javascript" contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
+					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
 	console.log( '"customevent" has fired' );
 } );
 					</code></pre>
@@ -523,7 +224,7 @@ function setupAlertTimeout() {
 
 				<section>
 					<h2>Pretty Code</h2>
-					<pre><code class="javascript" contenteditable>
+					<pre><code contenteditable>
 function linkify( selector ) {
   if( supports3DTransforms ) {
 
@@ -556,7 +257,7 @@ function linkify( selector ) {
 						<p>Hit the next arrow...</p>
 						<p class="fragment">... to step through ...</p>
 						<ol>
-							<li class="fragment"><code class="javascript">any type</code></li>
+							<li class="fragment"><code>any type</code></li>
 							<li class="fragment"><em>of view</em></li>
 							<li class="fragment"><strong>fragments</strong></li>
 						</ol>
