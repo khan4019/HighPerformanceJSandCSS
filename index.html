@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>High Perf JS CSS</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="An intermediate to advanced tips and tricks for High Performance JavaScript and CSS">
+		<meta name="author" content="Md Khan">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -21,6 +21,11 @@
 			.noUppercase
 			{
 				text-transform: none !important;
+			}
+			.fullScreenImage
+			{
+				width: 100%;
+				height: 100%;
 			}
 		</style>
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -41,11 +46,56 @@
 			<div class="slides">
 
 				<section>
-					<h1>High Performance JS & CSS</h1>
-					<h3>JS and CSS that tastes good</h3>
+					<h1>High Performance JS & CSS</h1>					
 					<p>
 						<small>Presented by <a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a></small>
 					</p>
+				</section>
+				<section>
+					<section>
+						<h1>Secret</h1>
+					</section>
+					<!-- <section>
+						<img src="http://happinessislookinglikeyou.files.wordpress.com/2012/10/redbull-drunk.jpg">
+					</section> -->
+					<section>
+						<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+					</section>
+					<section>
+						<img  class="fullScreenImage"  src="http://rlv.zcache.com/software_engineer_funny_pizza_t_shirt-r01628c1ad5084536b5bb0fee4d4e39a3_va6lr_324.jpg">
+					</section>
+				</section>
+				<section>
+					<section>
+						<img class="fullScreenImage" src="http://www.designbuzz.com/wp-content/uploads/2012/07/nulla-bike-concept1_ctUd2_1333.jpg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://www.templates.com/blog/wp-content/uploads/2009/01/concept-motorbike-by-hiro-nakano.jpg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://www.staugustinebikerentals.com/Portals/0/a_aaa-Cool-bike-Mike.jpg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://emmap25.files.wordpress.com/2012/03/amazing_odd_interesting_funny_cartbikerm3_200907240200237325.jpeg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://blog.africageographic.com/safari-blog/files/2012/11/304509_10151217623684048_753894487_n-640x464.jpg">
+					</section>										
+					<section>
+						<img class="fullScreenImage" src="http://blog.africageographic.com/safari-blog/files/2012/11/524462_10150966429748994_1804788585_n-640x480.jpg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://99likes.com/images/users/fbfb/363d2/02f2fa/ea351c6/5e833ec682.jpg">
+					</section>
+					<section>
+						<img class="fullScreenImage" src="http://www.shalusharma.com/wp-content/uploads/2012/12/family-on-bikes.jpg">
+					</section>															
+					<section>
+						<img class="fullScreenImage" src="http://4.bp.blogspot.com/-Lhwihz1XatI/UM76HTQwvHI/AAAAAAAAA2c/2YiIRO5lnyU/s1600/185.jpg">
+					</section>					
+					<section>
+						<img class="fullScreenImage" src="http://api.ning.com/files/thA3opZ6*idZuZagHvuF*Q5mj*l*737TNNGqg2tcI-ghF7VjvfCK2EGYxCQhebhyenbY9j7v*Lkp1UgwczJh2lFbigleqUVE/BucketSeatFunnyMotorbike.jpg">
+					</section>
 				</section>
 				<section>
 					
@@ -244,6 +294,222 @@ function setupAlertTimeout() {
 					
 
 				</section>
+
+				<section>
+					<section>
+						<h2>From Good parts: Don't</h2>
+						<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+	var i;
+		for (i = 0; i < nodes.length; i += 1) {
+			nodes[i].onclick = function (e) {
+				alert(i);
+		}
+	}
+};
+						</code></pre>
+					</section>
+					<section>
+						<h2>From Good parts:: DO</h2>
+						<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = function (i) {
+			return function (e) {
+				alert(i);
+			};
+		}(i);
+	}
+};
+						</code></pre>
+					</section>
+					<section>
+						<h2>From Good parts:: DO</h2>
+						<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+	var helper = function(i){
+	  return function(e){
+         alert(i);
+	  };
+	};
+	
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = helper(i);
+	}
+};
+						</code></pre>
+					</section>
+					<section>
+						<h2>Delete array Element</h2>
+						<pre><code contenteditable>
+var myArray = [1,2,3,4];
+abc.length; //4
+delete myArray[0]; 
+abc.length; //4
+abc; //[1, undefined × 1, 3, 4]
+
+						</code></pre>
+					</section>
+					<section>
+						<h1>Momoization</h1>
+					</section>
+					<section>
+						<h2>Memoization</h2>
+						<pre><code contenteditable>
+var fibonacci = function (n) {
+   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
+for (var i = 0; i <= 10; i += 1) {
+   console.log( i + ': ' + fibonacci(i));
+}
+// 0: 0
+// 1: 1
+// 2: 1
+// 3: 2
+// 4: 3
+// 5: 5
+// 6: 8
+// 7: 13
+// 8: 21
+// 9: 34
+// 10: 55
+						</code></pre>
+					</section>
+					<section>
+						<h2>From Good parts</h2>
+						<pre><code contenteditable>
+var fibonacci = (function () {
+  var memo = [0, 1];
+  var fib = function (n) {
+     var result = memo[n];
+     if (typeof result !== 'number') {
+         result = fib(n - 1) + fib(n - 2);
+         memo[n] = result;
+     }
+     return result;
+  };
+  return fib;
+})();
+						</code></pre>
+					</section>
+					<section>
+						<h2>General Memoization</h2>
+						<pre><code contenteditable>
+Function.prototype.memoize = function(){
+    var self = this, cache = {};
+    return function( arg ){
+      if(arg in cache) {
+        console.log('Cache hit for '+arg);
+        return cache[arg];
+      } else {
+        console.log('Cache miss for '+arg);
+        return cache[arg] = self( arg );
+      }
+    }
+  }
+						</code></pre>
+					<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani</a>
+					</section>
+					<section>
+						<h2>Implement general Memoize</h2>
+						<pre><code contenteditable>
+// a hypothetical usage example
+// imagine having a function, fooBar, as follows
+function fooBar(a){ ... }
+// once a memoizer is available, usage is as simple as
+// applying it to our function as follows:
+var memoFooBar = fooBar.memoize();
+// note in other implems, this would probably be
+// memoize(fooBar);
+// we now use memFooBar for all calls to the original
+// function, which will now go through the memoizer instead.
+memoFooBar(1);
+// the above call isn't cached, so any computations necessary
+// are conducted. This result is then cached for next time.
+memoFooBar(1); // will now return the cached result
+memoFooBar(2); // whilst this will need to be calculated
+						</code></pre>
+					</section>
+					<section>
+						<h2>Memoise JS</h2>
+						<pre><code contenteditable>
+							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani</a>
+						</code></pre>
+					</section>
+					<section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section>
+
+				</section>
+				<section>
+					<section>
+						<h1>Underscore vs LoDash</h1>
+					</section>
+					<section>
+						<h2>LoDash Filter is 285% faster for Array</h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2>LoDash Find in Array 200% faster. 50% faster in Object</h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section>
+				</section>
+				<section>
+						
+					<section>
+						<h2>Time Killer: fix typeof</h2>
+						<a href="http://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/">Angus Croll</a>
+					</section>
+					<section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section><section>
+						<h2></h2>
+						<pre><code contenteditable>
+							
+						</code></pre>
+					</section>					
+				</section>
 				<section>					
 					<section>
 						<h1 class="noUppercase">How Browser works</h1>
@@ -341,7 +607,7 @@ function setupAlertTimeout() {
 					</section>
 					
 				<section>
-					<h2>uSE Strict Mode in JS file or even inside function</h2>
+					<h2>Use Strict Mode in JS file or even inside function</h2>
 					<a href="http://johnkpaul.github.io/presentations/ncdevcon/2013/javascript-bad-parts/">NC dev link with run</a>
 					<a href="http://johnkpaul.github.io/presentations/pghtechfest/javascript-bad-parts"> github io link</a>
 					<p>
@@ -352,7 +618,249 @@ function setupAlertTimeout() {
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 					</aside>
+				</section>				
+				<section>
+						<img style="width:800px; height:700px;" src="images/css.jpg">	
 				</section>
+				<section>
+					<h3>Read the link or show it. or make something </h3>
+					<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
+				</section>
+				<section>					
+					<section>
+						<h1>Efficient CSS selectors</h1>	
+						<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference betwee ID and Class</a>
+						<br/>
+						<a href="http://stackoverflow.com/questions/1230636/css-optimization-element-id-vs-class">CSS Optimization</a>
+						<br/>
+						<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+						<br/>
+						<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">How Browsers Work</a>	
+					</section>
+
+					<section>
+						<h2>Fancy Selectors</h2>
+						<ul>
+							<li>
+								<h3 class = "fragment noUppercase">Child – div > p</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Descendant - div p</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Attribute – input[type="text"], h1[rel="external"]</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
+							</li>		
+						</ul>		
+					</section>
+					<section>
+						<h1>Render Speed</h1>
+					</section>
+					<section>
+						
+						<ul>
+							<li>
+								<h3 class = "fragment noUppercase">ID - #header</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Class – .header</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Tag – div</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Child – div > p</h3>			
+							</li>		
+							<li>
+								<h3 class = "fragment noUppercase">Descendant – div p</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Universal – div *</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Attribute – input[type="text"]</h3>			
+							</li>
+							<li>
+								<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
+							</li>				
+						</ul>	
+					<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">writing-efficient-css-selector</a>	
+					</section>
+					<section>
+						<h1>Universal Key Selector</h1>
+					<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
+					</section>
+					<section>
+						<h3 class="noUppercase">Avoid Universal Selector</h3>	
+						<pre><code contenteditable>
+
+body * {...}
+.hide-scrollbars * {...}
+							</code></pre> 
+					</section>
+					<section>
+						<h3 class="noUppercase">Something is wrong!.</h3>
+						<pre><code contenteditable>
+#myDiv ul li button 
+{ 
+   width:200px;
+}
+#myDiv ul li:nth-child(2) li:nth-child(7) > a 
+{
+   color:red;
+}
+							</code></pre> 
+					</section>
+					<section>						
+						<h3 class = "noUppercase">Don't Repeat</h3>
+						<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;          
+}
+.downTrend
+{
+    background-image:url('downRed.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+							</code></pre> 
+					</section>
+					<section>						
+						<h3 class = "noUppercase">Don't</h3>
+						<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg') center center no-repeat;
+    padding-left:20px;          
+}
+.downTrend
+{
+    background-image:url('downRed.jpg') center center no-repeat;    
+    padding-left:20px;
+}
+							</code></pre> 
+					</section>
+					<section>
+						<h3 class="noUppercase">Background Image</h3>
+						<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');            
+}
+.downTrend
+{
+    background-image:url('downRed.jpg');            
+}
+
+.upTrend, .downTrend 
+{
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+							</code></pre> 
+							<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
+					</section>
+					<section>						
+						<h3 class = "noUppercase">Use class</h3>
+						<pre><code contenteditable>
+.btnMedium 
+{
+   width:200px;
+}
+.myClass 
+{
+   color:red;
+}
+							</code></pre> 
+					</section>
+					<section>
+						<h3 class="noUppercase">As specific as possible.</h3>
+						<pre><code contenteditable>
+ul li a {...}
+#footer h3 {...}
+* html #atticPromo ul li a {...]
+							</code></pre> 
+					</section>
+					<section>
+						<h1>Redundant qualifiers </h1>	
+					</section>
+					<section>
+						<pre><code contenteditable>
+ul#top_blue_nav {...}
+form#UserLogin {...}
+							</code></pre> 
+					</section>
+					<!--
+					<section>
+						<h1> CSS expressions</h1>	
+					</section>
+					<section>
+						<pre><code contenteditable>
+					//get from google best practices link before
+							</code></pre> 
+					</section>
+					-->
+					<section>
+						<h1>Check again your child selectors</h1>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
+					</section>
+					<section>
+						<pre><code contenteditable>
+//don't
+treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon {…}
+//do
+.tree-folderpane-icon[IsImapServer="true"] {…}
+							</code></pre> 
+					</section>
+
+					<section>
+						<pre><code contenteditable>
+					//Dont know about it. learn it
+							</code></pre> 
+					</section>					
+				</section>
+				<section>
+					<h1>Change CSS classes not styles</h1>
+				<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">10-javascript-performance-boosting-tips-from-nicholas-zakas</a>	
+				</section>
+				<section>
+					<h1> Take Advantage of CSS specificity</h1>
+				<a href="http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/">Not very good resource</a>	
+				</section>
+				<section>
+					<pre><code contenteditable>
+//google it
+//http://css-tricks.com/specifics-on-css-specificity/
+
+						</code></pre>
+				</section>
+				<section>
+					<h1>Unused CSS</h1>
+						<a href="http://unused-css.com/">detect unused css</a><br/>
+						<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Lyaout Engines</a>
+					<br/>
+					<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: optimize browser rendering</a>
+				</section>
+				<section>
+					<h1>Jank</h1>
+					<a href="http://jankfree.org/">Jank Free</a>
+				</section>
+
+
 
 				<!-- Example of nested vertical slides -->
 				<section>
