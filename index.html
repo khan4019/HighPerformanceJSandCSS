@@ -40,6 +40,13 @@
 					max-height: 600px;
 				}
 
+				.greenBold{
+					color: green;
+					font-weight: bold !important;
+				}
+				.lineThrough{
+					text-decoration: line-through;					
+				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 			<script>
@@ -128,20 +135,20 @@
 						<section>
 							<h1 class="noUppercase upholdHeader" > Optimization :- </h1>
 							<ul class="mediumFont">
-								<li class="fragment noUppercase" >  Addictive</li>
-								<li class="fragment noUppercase" >Subjective</li>
-								<li class="fragment noUppercase" >Could be Expensive</li>
-								<li class="fragment noUppercase" >Not Always Valid</li>
-								<li class="fragment noUppercase" >Don't Guess, Measure it</li>
+								<li class="fragment" >  Addictive</li>
+								<li class="fragment" >Subjective</li>
+								<li class="fragment" >Could be Expensive</li>
+								<li class="fragment" >Not Always Valid</li>
+								<li class="fragment" >Don't Guess, Measure it</li>
 							</ul>
 						</section>
 						<section>
 							<h1 class="noUppercase" > Expectations !!!</h1>
 							<ul>
-								<li class="fragment noUppercase" >Browser</li>
-								<li class="fragment noUppercase" >CSS</li>
-								<li class="fragment noUppercase" >JavaScript</li>								
-								<li class="fragment noUppercase" >Debug</li>
+								<li class="fragment" >Browser</li>
+								<li class="fragment" >CSS</li>
+								<li class="fragment" >JavaScript</li>								
+								<li class="fragment" >Debug</li>
 							</ul>
 						</section>
 						
@@ -155,9 +162,9 @@
 						<section>
 							<h1 >Browser</h1>
 							<ul>
-								<li class="fragment noUppercase" >Versions</li>
-								<li class="fragment noUppercase" >Bugs</li>
-								<li class="fragment noUppercase" >Changing</li>
+								<li class="fragment" >Versions</li>
+								<li class="fragment" >Bugs</li>
+								<li class="fragment" >Changing</li>
 							</ul>
 						</section>
 						
@@ -180,7 +187,7 @@
 						</section>						
 						<section>
 						<h2>Your Html</h2>
-						<pre><code class="javascript" contenteditable>
+						<pre><code contenteditable>
 &lt;html&gt;<br/>  &lt;body&gt;<br/>    &lt;p&gt;<br/>      Hello World<br/>    &lt;/p&gt;<br/>    &lt;div&gt; &lt;img src=&quot;example.png&quot;/&gt;&lt;/div&gt;<br/>  &lt;/body&gt;<br/>&lt;/html&gt;
 
 	</code></pre>
@@ -326,188 +333,297 @@ p,div{
 					<section>
 						<h1 class="upholdHeader">Lets Talk little more CSS</h1>
 					</section>
-					
-
 					<section>
-							<img style="width:800px; height:700px;" src="images/css.jpg">	
-					</section>
 
-					<section>					
 						<section>
-							<h1>Efficient CSS selectors</h1>	
-							<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference betwee ID and Class</a>
+							<h1 class="upholdHeader">CSS Selectors</h1>
+							<img style="width:800px; height:700px;" src="images/css.jpg">	
+						</section>
+						<section>
+							<h1 class="upholdHeader">ID</h1>
+							<pre><code contenteditable>
+1. &lt;style&gt;
+2.  #myFirstTODO
+3.  {
+4.     color:red;
+5.  }
+6.  &lt;/style&gt;
+7.
+8.  &lt;div&gt;
+9.      &lt;p id=&quot;myFirstTODO&quot;&gt; <span style="color:red;">have to shower </span>&lt;/p&gt;
+10.     &lt;p&gt; have to shave&lt;/p&gt;
+11.     &lt;p&gt; have to cut hair&lt;/p&gt;
+12.     &lt;p&gt; buy perfume&lt;/p&gt;
+13.     &lt;p&gt; at least buy t shirt&lt;/p&gt;
+14. &lt;/div&gt;
+							</code></pre> 
+						</section>
+
+						<section>
+							<h1 class="upholdHeader">Class</h1>
+							<pre><code contenteditable>
+1. &lt;style&gt;
+2.  .greenBold
+3.  {
+4.     color: green;
+5.     font-weight:bold;
+6.  }
+7.  &lt;/style&gt;
+8.
+9.  &lt;div&gt;
+10.     &lt;p&gt; have to shower&lt;/p&gt;
+11.     &lt;p class=&quot;greenBold&quot;&gt; <span class="greenBold">have to shave</span>&lt;/p&gt;
+12.     &lt;p class=&quot;greenBold&quot;&gt; <span class="greenBold">have to cut hair</span>&lt;/p&gt;
+13.     &lt;p&gt; buy perfume&lt;/p&gt;
+14.     &lt;p&gt; at least buy t shirt&lt;/p&gt;
+15. &lt;/div&gt;
+							</code></pre> 
+						</section>
+						<section>
+							<h1 class="upholdHeader">Immediate children</h1>
+							<pre><code class="largeCode" contenteditable>
+1. &lt;style&gt;
+2.  li &gt; ul
+3.  {
+4.     color: green;
+5.     font-weight: bold;
+6.  }
+7.  &lt;/style&gt;
+8.
+9.  &lt;div&gt;  
+10.     &lt;ul&gt;  
+11.         &lt;li&gt; List Item  
+12.            &lt;ul&gt;  
+13.                &lt;li&gt;<span class="greenBold"> Child</span> &lt;/li&gt;  
+14.            &lt;/ul&gt;  
+15.         &lt;/li&gt;  
+16.         &lt;li&gt; List Item &lt;/li&gt;  
+17.         &lt;li&gt; List Item &lt;/li&gt;  
+18.         &lt;li&gt; List Item &lt;/li&gt;  
+19.    &lt;/ul&gt;  
+20. &lt;/div&gt; 						</code></pre> 
+						</section>
+						<section>
+							<h1 class="upholdHeader">Descendent</h1>
+							<pre><code contenteditable>
+#myTODO p
+  {
+     color: green;
+     font-weight: bold;
+  }
+							</code></pre> 
+						</section>
+						<section>
+							<h1 class="upholdHeader">Fancy Selectors</h1>
+								<br/>
+								<br/>
+								<h3 class = "fragment">Adjacent     div + p</h3>			
+								
+								<h3 class = "fragment">Sibling      div ~ p</h3>			
+								
+								<h3 class = "fragment">Attribute    input[type="text"]</h3>			
+								
+								<h3 class = "fragment">Pseudo       p:first-child</h3>			
+								<br/>
+								<br/>
+							<a href="http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/">CSS Selectors</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader" style="color:green;">You can do</h1>
+							<h1 class="upholdHeader fragment" style="color:red; margin-top: 0px">Doesn't mean you should</h1>
+						</section>
+					</section>		
+					<section>
+						<section>
+							<h1 class="upholdHeader">Render Speed</h1>
+							<img src="http://farm9.staticflickr.com/8174/8031171243_1f6c584425_z.jpg">
+						</section>
+						<section>
+							<br/>
+							<h3>ID - #header</h3>			
+							<br/>
+							<h3 class = "fragment">Class – .header</h3>			
+							<br/>
+							<h3 class = "fragment">Tag – div</h3>			
+							<br/>
+							<h3 class = "fragment">Sibling – div + p, div ~ p</h3>			
+							<br/>
+							<h3 class = "fragment">Child – div > p</h3>			
+							<br/>
+						</section>
+						<section>
+							<br/>
+							<h3>Descendant – div p</h3>			
+							<br/>
+							<h3 class = "fragment">Universal – div *</h3>			
+							<br/>
+							<h3 class = "fragment">Attribute – input[type="text"]</h3>			
+							<br/>
+							<h3 class = "fragment">Pseudo – p:first-child</h3>			
+							<br/>
+							<br/>
+							<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS Selector</a>	
+						</section>
+
+
+						<section>
+							<h3>This doesn't mean everything should be ID</h3>
+							<br/>
+							<h3 class = "fragment">ID and Class: almost similar</h3>
+							<br/>
+							<h3 class = "fragment">Keep it DRY</h3>
+							<br/>
+							<h3 class = "fragment">Readable & Maintainable</h3>
+							<br/>
+							<h1 class = "fragment">Fast</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Efficient CSS selectors</h1>	
+							<br/>
+							<br/>
+							<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference between ID and Class</a>
 							<br/>
 							<a href="http://stackoverflow.com/questions/1230636/css-optimization-element-id-vs-class">CSS Optimization</a>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
 							<br/>
-							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">How Browsers Work</a>	
+							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">Tali Garsiel: Browsers Insights</a>	
 						</section>
+					</section>	
+					<section>
+						<section>
+							<h1 class="upholdHeader">CSS Try to Avoid</h1>
+							<br/>
+							<br/>
+							<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
+						</section>
+						
+						<section>
+							<h3 class="lineThrough">Universal Key Selector</h3>
+							<pre><code contenteditable>
+body * {
+	color:#365277;
+}
 
-						<section>
-							<h2>Fancy Selectors</h2>
-							<ul>
-								<li>
-									<h3 class = "fragment noUppercase">Child – div > p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Descendant - div p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Attribute – input[type="text"], h1[rel="external"]</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
-								</li>		
-							</ul>		
+.hide-scrollbars * {
+	font-size: 16px;
+}								
+							</code></pre> 
 						</section>
 						<section>
-							<h1>Render Speed</h1>
-						</section>
-						<section>
-							
-							<ul>
-								<li>
-									<h3 class = "fragment noUppercase">ID - #header</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Class – .header</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Tag – div</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Child – div > p</h3>			
-								</li>		
-								<li>
-									<h3 class = "fragment noUppercase">Descendant – div p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Universal – div *</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Attribute – input[type="text"]</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
-								</li>				
-							</ul>	
-						<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">writing-efficient-css-selector</a>	
-						</section>
-						<section>
-							<h1>Universal Key Selector</h1>
-						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
-						</section>
-						<section>
-							<h3 class="noUppercase">Avoid Universal Selector</h3>	
+							<h3 class="lineThrough">When you can't read easily. Same to Browser</h3>
 							<pre><code contenteditable>
+#myDiv ul li button 
+{ 
+   width:200px;
+}
 
-	body * {...}
-	.hide-scrollbars * {...}
+#myDiv ul li:nth-child(2) li:nth-child(7) > a 
+{
+   color:red;
+}
 								</code></pre> 
-						</section>
-						<section>
-							<h3 class="noUppercase">Something is wrong!.</h3>
-							<pre><code contenteditable>
-	#myDiv ul li button 
-	{ 
-	   width:200px;
-	}
-	#myDiv ul li:nth-child(2) li:nth-child(7) > a 
-	{
-	   color:red;
-	}
-								</code></pre> 
-						</section>
-						<section>						
-							<h3 class = "noUppercase">Don't Repeat</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg');
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;          
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg');
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;
-	}
-								</code></pre> 
-						</section>
-						<section>						
-							<h3 class = "noUppercase">Don't</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg') center center no-repeat;
-	    padding-left:20px;          
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg') center center no-repeat;    
-	    padding-left:20px;
-	}
-								</code></pre> 
-						</section>
-						<section>
-							<h3 class="noUppercase">Background Image</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg');            
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg');            
-	}
-
-	.upTrend, .downTrend 
-	{
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;
-	}
-								</code></pre> 
-								<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
 						</section>
 						<section>						
 							<h3 class = "noUppercase">Use class</h3>
 							<pre><code contenteditable>
-	.btnMedium 
-	{
-	   width:200px;
-	}
-	.myClass 
-	{
-	   color:red;
-	}
+.btnMedium 
+{
+   width:200px;
+}
+
+.myClass 
+{
+   color:red;
+}
+								</code></pre> 
+						</section>
+
+						<section>						
+							<h3 class = "noUppercase">Don't Repeat</h3>
+							<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;          
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+								</code></pre> 
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Still Repeating</h3>
+							<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg') center center no-repeat;
+    padding-left:20px;          
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg') center center no-repeat;    
+    padding-left:20px;
+}
 								</code></pre> 
 						</section>
 						<section>
-							<h3 class="noUppercase">As specific as possible.</h3>
+							<h3 class="noUppercase">Combine Common Styles</h3>
+							<pre><code class="largeCode" contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');            
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg');            
+}
+
+.upTrend, .downTrend 
+{
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+								</code></pre> 
+								<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
+						</section>
+						<section>
+							<h3 class="lineThrough">Be as specific as possible.</h3>
 							<pre><code contenteditable>
-	ul li a {...}
-	#footer h3 {...}
-	* html #atticPromo ul li a {...]
+ul li a 
+{
+	/* My awesome anchor */
+}
+
+* html #atticPromo ul li a 
+{
+	/* My awesome rules */
+}
 								</code></pre> 
 						</section>
+						
 						<section>
-							<h1>Redundant qualifiers </h1>	
-						</section>
-						<section>
+							<h3 class="lineThrough">Redundant selectors</h3>
 							<pre><code contenteditable>
-	ul#top_blue_nav {...}
-	form#UserLogin {...}
+ul #top_blue_nav 
+{
+  ...
+}
+
+form #UserLogin 
+{
+  ...
+}
 								</code></pre> 
 						</section>
 						<!--
@@ -520,28 +636,28 @@ p,div{
 								</code></pre> 
 						</section>
 						-->
-						<section>
-							<h1>Check again your child selectors</h1>
-								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
-						</section>
-						<section>
-							<pre><code contenteditable>
-	//don't
-	treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon {…}
-	//do
-	.tree-folderpane-icon[IsImapServer="true"] {…}
-								</code></pre> 
-						</section>
 
 						<section>
+							<h3 class="lineThrough">Check again your child selectors</h3>
 							<pre><code contenteditable>
-						//Dont know about it. learn it
+
+//don't
+treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon 
+{
+   ... 
+}
+
+
+//do
+.tree-folderpane-icon[IsImapServer="true"] 
+{
+   ...
+}
+
 								</code></pre> 
-						</section>					
-					</section>
-					<section>
-						<h1>Change CSS classes not styles</h1>
-					<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">10-javascript-performance-boosting-tips-from-nicholas-zakas</a>	
+								<br/>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
+						</section>
 					</section>
 					<section>
 						<h1> Take Advantage of CSS specificity</h1>
@@ -615,37 +731,7 @@ console.log(start - end +'ms');
 						</section>
 					</section>
 					<!-- Example of nested vertical slides -->
-					<section>
-						<section>
-							<h2>Vertical Slides</h2>
-							<p>
-								Slides can be nested inside of other slides,
-								try pressing <a href="#/2/1">down</a>.
-							</p>
-							<a href="#/2/1" class="image">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-							</a>
-						</section>
-						<section>
-							<h2>Basement Level 1</h2>
-							<p>Press down or up to navigate.</p>
-						</section>
-						<section>
-							<h2>Basement Level 2</h2>
-							<p>Cornify</p>
-							<a class="test" href="http://cornify.com">
-								<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-							</a>
-						</section>
-						<section>
-							<h2>Basement Level 3</h2>
-							<p>That's it, time to go back up.</p>
-							<a href="#/2" class="image">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-							</a>
-						</section>
-					</section>
-
+					
 					<section>	
 						<section>
 							<h1 class="noUppercase">Unnecessary: could avoid</h1>						
@@ -1130,6 +1216,10 @@ console.log(start - end +'ms');
 							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 						</aside>
 					</section>				
+					<section>
+						<h1>Change CSS classes not styles</h1>
+						<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">10-javascript-performance-boosting-tips-from-nicholas-zakas</a>	
+					</section>
 					
 					<section>
 						<h2>Point of View</h2>
