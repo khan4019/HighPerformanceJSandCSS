@@ -192,6 +192,9 @@
 
 	</code></pre>
 						<p> <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a></p>
+						
+						
+						<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Layout Engines</a>
 					</section>
 
 					<section>
@@ -495,7 +498,9 @@ p,div{
 							<h1 class="upholdHeader">CSS Try to Avoid</h1>
 							<br/>
 							<br/>
-							<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
+							<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>
+							<br/>
+								<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: Optimize Browser Rendering</a>	
 						</section>
 						
 						<section>
@@ -656,26 +661,29 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 
 								</code></pre> 
 								<br/>
-								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering Guides</a>
+								
 						</section>
 					</section>
+					
 					<section>
-						<h1> Take Advantage of CSS specificity</h1>
-					<a href="http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/">Not very good resource</a>	
-					</section>
-					<section>
+						<h1 class="upholdHeader"> Take Advantage of CSS specificity</h1>
+						<br/>
+						<br/>
 						<pre><code contenteditable>
-	//google it
-	//http://css-tricks.com/specifics-on-css-specificity/
+//google it
+//http://css-tricks.com/specifics-on-css-specificity/
 
-							</code></pre>
+						</code></pre>
+						<br/>
+						<br/>
+						<a href="http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/">Not very good resource</a>	
 					</section>
 					<section>
 						<h1>Unused CSS</h1>
 							<a href="http://unused-css.com/">detect unused css</a><br/>
-							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Lyaout Engines</a>
-						<br/>
-						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: optimize browser rendering</a>
+							
+						
 					</section>
 					<section>
 						<h1>Jank</h1>
@@ -732,59 +740,7 @@ console.log(start - end +'ms');
 					</section>
 					<!-- Example of nested vertical slides -->
 					
-					<section>	
-						<section>
-							<h1 class="noUppercase">Unnecessary: could avoid</h1>						
-							<p>.2+.4</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>[]+[]</p>
-							<a href="https://www.destroyallsoftware.com/talks/wat">Gary Bernhardth CodeMash 2012</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>[]+{}</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>{}+[]</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>{}+{}</p>						
-						</section>
-						<section>
-							<h2>Type related</h2>
-							<p>
-								<a href="http://net.tutsplus.com/tutorials/javascript-ajax/top-10-things-that-javascript-got-wrong/">10 things</a>
-
-								add some more here <a href="#" class="navigate-down">down</a>.
-							</p>
-							<a href="#" class="image navigate-down">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-							</a>
-						</section>
-						<section>
-							<h2>typeof Null //object</h2>
-							<p>Press down or up to navigate.</p>
-						</section>
-						<section>
-							<h2>typeof NaN // number
-								NaN == Nan</h2>
-							<p>Cornify</p>
-							<a class="test" href="http://cornify.com">
-								<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-							</a>
-						</section>
-						<section>
-							<h2>NaN === NaN</h2>
-							
-							<a href="#/2" class="image">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-							</a>
-						</section>
-					</section>		
+		
 					<section>						
 							<section>
 							<h1 class="noUppercase">Debounce</h1>
@@ -799,59 +755,64 @@ console.log(start - end +'ms');
 					<!-- Example of nested vertical slides -->
 					<section>
 						<section>
-							<h2>Daily Life</h2>						
-							<pre><code contenteditable>
-	var tinyMessage = 'Trust me, i started one line' + 
-			'Designer told me he wants little more' + 
-			'I added little more' +
-			'Manager said, this is not enough' +
-			"He didn't said what to add" +
-			'Just said add' +
-			"I didn't know what to add" +
-			'so i added a slice of pizza' +
-			'Client said this is stupid' +
-			'Manager said, client is right';
-						</code></pre>
-						<a href="https://developers.google.com/speed/articles/optimizing-javascript"> optimize javascript </a>
+							<h1 class="upholdHeader">JS try to Avoid</h1>
 						</section>
 						<section>
-							<h2>Instead do</h2>
+							<h2 class="lineThrough">String Concatenation</h2>						
 							<pre><code contenteditable>
-	var tinyMessage = ['Trust me, i started one line', 
-			'Designer told me he wants little more', 
-			'I added little more',
-			'Manager said, this is not enough',
-			"He didn't said what to add",
-			'Just said add',
-			"I didn't know what to add",
-			'so i added a slice of pizza',
-			'Client said this is stupid',
-			'Manager said, client is right'].join();
+var tinyMessage = 'Trust me, i started one line' + 
+		  'Designer told me he wants little more' + 
+		  'I added little more' +
+		  'Manager said, this is not enough' +
+		  "He didn't said what to add" +
+		  'Just said add' +
+		  "I didn't know what to add" +
+		  'So i added a slice of pizza' +
+		  'Client said this is stupid' +
+		  'Manager said, client is right';
+						</code></pre>
+						<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>
+						<section>
+							<h2>[ ].join(' ')</h2>
+							<pre><code contenteditable>
+var tinyMessage = ['Trust me, i started one line', 
+		   'Designer told me he wants little more', 
+		   'I added little more',
+		   'Manager said, this is not enough',
+		   "He didn't said what to add",
+		   'Just said add',
+		   "I didn't know what to add",
+		   'So i added a slice of pizza',
+		   'Client said this is stupid',
+		   'Manager said, client is right'].join(' ');
 						</code></pre>						
 						</section>
-						<section>
+						<!-- <section>
 							<h2>Insted</h2>
 							<pre><code contenteditable>
-	var fibonacciStr = 'First 20 Fibonacci Numbers';
-		
-	for (var i = 0; i < 20; i++) {
-		fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
-	}
+var fibonacciStr = 'First 20 Fibonacci Numbers';
+	
+for (var i = 0; i < 20; i++) {
+	fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
+}
 							</code></pre>
-						</section>
+						</section> -->
 						<section>
-							<h2>Do</h2>
+							<h2>Your Own String Builder</h2>
 							<pre><code contenteditable>
-	var strBuilder = ['First 20 fibonacci numbers:'];
+var strBuilder = ['First 20 fibonacci numbers:'];
 
-	for (var i = 0; i < 20; i++) {
-	  strBuilder.push(i, ' = ', fibonacci(i));
-	}
+for (var i = 0; i < 20; i++) {
+  strBuilder.push( i, '=', fibonacci(i));
+}
 
-	var fibonacciStr = strBuilder.join('');
+var fibonacciStr = strBuilder.join(' ');
 							</code></pre>
 						</section>
-						<section>
+<!-- commented out prototype and set time out stuff -->
+<!--
+						 <section>
 							<h2>Don't</h2>
 							<pre><code contenteditable>
 	baz.Bar = function() {
@@ -931,65 +892,69 @@ console.log(start - end +'ms');
 							<pre><code contenteditable>
 								
 							</code></pre>
-						</section>
-						
+						</section> 
+-->
+<!-- End of commented out prototype and set time out -->						
 
 					</section>
 
 					<section>
 						<section>
+							<h1 class="upholdHeader">JavaScript: The Good Parts</h1>
+						</section>
+						<section>
 							<h2>From Good parts: Don't</h2>
 							<pre><code contenteditable>
-	var add_the_handlers = function (nodes) {
-		var i;
-			for (i = 0; i < nodes.length; i += 1) {
-				nodes[i].onclick = function (e) {
-					alert(i);
-			}
-		}
-	};
+var add_the_handlers = function (nodes) {
+  var i;
+  for (i = 0; i < nodes.length; i += 1) {
+       nodes[i].onclick = function (e) {
+	  alert(i);
+      }
+  }
+};
 							</code></pre>
 						</section>
 						<section>
 							<h2>From Good parts:: DO</h2>
 							<pre><code contenteditable>
-	var add_the_handlers = function (nodes) {
-		var i;
-		for (i = 0; i < nodes.length; i += 1) {
-			nodes[i].onclick = function (i) {
-				return function (e) {
-					alert(i);
-				};
-			}(i);
-		}
-	};
+var add_the_handlers = function (nodes) {
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = function (i) {
+			return function (e) {
+				alert(i);
+			};
+		}(i);
+	}
+};
 							</code></pre>
 						</section>
 						<section>
 							<h2>From Good parts:: DO</h2>
 							<pre><code contenteditable>
-	var add_the_handlers = function (nodes) {
-		var helper = function(i){
-		  return function(e){
-	         alert(i);
-		  };
-		};
-		
-		var i;
-		for (i = 0; i < nodes.length; i += 1) {
-			nodes[i].onclick = helper(i);
-		}
+var add_the_handlers = function (nodes) {
+	var helper = function(i){
+	  return function(e){
+           alert(i);
+	  };
 	};
+	
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = helper(i);
+	}
+};
 							</code></pre>
 						</section>
 						<section>
 							<h2>Delete array Element</h2>
 							<pre><code contenteditable>
-	var myArray = [1,2,3,4];
-	abc.length; //4
-	delete myArray[0]; 
-	abc.length; //4
-	abc; //[1, undefined × 1, 3, 4]
+var myArray = [1,2,3,4];
+abc.length; //4
+delete myArray[0]; 
+abc.length; //4
+abc; //[1, undefined × 1, 3, 4]
 
 							</code></pre>
 						</section>
@@ -998,94 +963,76 @@ console.log(start - end +'ms');
 						</section>
 						<section>
 							<h2>Memoization</h2>
-							<pre><code contenteditable>
-	var fibonacci = function (n) {
-	   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
-	};
-	for (var i = 0; i <= 10; i += 1) {
-	   console.log( i + ': ' + fibonacci(i));
-	}
-	// 0: 0
-	// 1: 1
-	// 2: 1
-	// 3: 2
-	// 4: 3
-	// 5: 5
-	// 6: 8
-	// 7: 13
-	// 8: 21
-	// 9: 34
-	// 10: 55
+							<pre><code class="largeCode" contenteditable>
+var fibonacci = function (n) {
+   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
+for (var i = 0; i <= 10; i += 1) {
+   console.log( i + ': ' + fibonacci(i));
+}
+
+// 0: 0
+// 1: 1
+// 2: 1
+// 3: 2
+// 4: 3
+// 5: 5
+// 6: 8
+// 7: 13
+// 8: 21
+// 9: 34
+// 10: 55
 							</code></pre>
 						</section>
 						<section>
-							<h2>From Good parts</h2>
+							<h2>From JavaScript: The Good Parts</h2>
 							<pre><code contenteditable>
-	var fibonacci = (function () {
-	  var memo = [0, 1];
-	  var fib = function (n) {
-	     var result = memo[n];
-	     if (typeof result !== 'number') {
-	         result = fib(n - 1) + fib(n - 2);
-	         memo[n] = result;
-	     }
-	     return result;
-	  };
-	  return fib;
-	})();
+var fibonacci = (function () {
+  var memo = [0, 1];
+  var fib = function (n) {
+     var result = memo[n];
+     if (typeof result !== 'number') {
+         result = fib(n - 1) + fib(n - 2);
+         memo[n] = result;
+     }
+     return result;
+  };
+  return fib;
+})();
 							</code></pre>
 						</section>
 						<section>
 							<h2>General Memoization</h2>
 							<pre><code contenteditable>
-	Function.prototype.memoize = function(){
-	    var self = this, cache = {};
-	    return function( arg ){
-	      if(arg in cache) {
-	        console.log('Cache hit for '+arg);
-	        return cache[arg];
-	      } else {
-	        console.log('Cache miss for '+arg);
-	        return cache[arg] = self( arg );
-	      }
-	    }
-	  }
+Function.prototype.memoize = function(){
+    var self = this, cache = {};
+    return function( arg ){
+      if(arg in cache) {
+        console.log('Cache hit for '+arg);
+        return cache[arg];
+      } else {
+        console.log('Cache miss for '+arg);
+        return cache[arg] = self( arg );
+      }
+    }
+  }
 							</code></pre>
-						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani</a>
+						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: Faster JS Memoization</a>
 						</section>
 						<section>
 							<h2>Implement general Memoize</h2>
-							<pre><code contenteditable>
-	// a hypothetical usage example
-	// imagine having a function, fooBar, as follows
-	function fooBar(a){ ... }
-	// once a memoizer is available, usage is as simple as
-	// applying it to our function as follows:
-	var memoFooBar = fooBar.memoize();
-	// note in other implems, this would probably be
-	// memoize(fooBar);
-	// we now use memFooBar for all calls to the original
-	// function, which will now go through the memoizer instead.
-	memoFooBar(1);
-	// the above call isn't cached, so any computations necessary
-	// are conducted. This result is then cached for next time.
-	memoFooBar(1); // will now return the cached result
-	memoFooBar(2); // whilst this will need to be calculated
-							</code></pre>
-						</section>
-						<section>
-							<h2>Memoise JS</h2>
-							<pre><code contenteditable>
-								<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani</a>
-							</code></pre>
-						</section>
-						<section>
-							<h2></h2>
-							<pre><code contenteditable>
-								
-							</code></pre>
-						</section>
+							<pre><code class="largeCode" contenteditable>
 
+function fooBar(a){ ... }
+// once a memoizer is available, usage is as simple as
+var memoFooBar = fooBar.memoize();
+memoFooBar(1);
+// are conducted. This result is then cached for next time.
+memoFooBar(1); // will now return the cached result
+memoFooBar(2); // whilst this will need to be calculated
+							</code></pre>
+							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -1156,27 +1103,7 @@ console.log(start - end +'ms');
 						</section>					
 					</section>
 					
-						<section>
-							<h1 class="noUppercase">Script Defer or Async </h1>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/script-loading/">html5 rock </a>
-							<p></p>
-						</section>
-						<section>
-							<p>li closing and validating html</p>
-							<h1 class="noUppercase">How Browser render</h1>
-							<ul>
-								<li>Browser changes everyday.</li>
-								<li>Must validate best practices. Things are changes everyday</li>
-								<li>type url: network>loader>tag soup>html parser</li>
-								<li>DOM tree from html</li>
-								<li>If you have well</li>
-								<li>Parser guess when u forget a closing tag</li>
-								<li>forget closing div and p </li>
-								<li>How html tree is different: see the DOM tree</li>
-								<li>validate html</li>
-
-							</ul>
-						</section>
+						
 						<section>
 							<h1 class="noUppercase">Minify CSS</h1>
 							<li>Browser will not show anything untill u have any css</li>
@@ -1227,7 +1154,19 @@ console.log(start - end +'ms');
 							Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
 						</p>
 					</section>
-
+					<section>	
+						<section>
+							<h1 class="noUppercase">Fun with JavaScript</h1>													
+						</section>
+						<section>
+							<h1 class="noUppercase">WAT!</h1>							
+							<a href="https://www.destroyallsoftware.com/talks/wat">Gary Bernhardth CodeMash 2012</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">JS Wizardy</h1>
+							<a href="http://www.youtube.com/watch?v=RTxtiLp1C8Y">Martin Kleppe: JS Conf EU</a>
+						</section>
+					</section>
 					<section>
 						<h2>rvl.io</h2>
 						<p>
