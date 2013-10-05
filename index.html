@@ -735,9 +735,19 @@ console.log(start - end +'ms');
 					<section>
 						<section>
 							<h1>Improve JQuery Performance</h1>
-							<a href="http://www.sitepoint.com/efficient-jquery-selectors/">Add the fifth point</a>
+							<a href="http://www.sitepoint.com/efficient-jquery-selectors/">Add the fifth point</a><br/>
+							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a><br/>
+							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a><br/>
+							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
 						</section>
 					</section>
+					<section>
+						<h1>Break Everything, I have said. as long as you know what u r doing</h1>
+						<p>Add Angus Croll talk from EU conf 2012</p>
+						<h1>with() eval()</h1>
+						<a href="http://www.yuiblog.com/blog/2006/04/11/with-statement-considered-harmful/">With</a><br/>	
+					</section>
+
 					<!-- Example of nested vertical slides -->
 					
 		
@@ -752,10 +762,106 @@ console.log(start - end +'ms');
 						</section>
 
 					</section>
-					<!-- Example of nested vertical slides -->
+
+<!-- Start of JS Best Practice -->
+					
 					<section>
 						<section>
 							<h1 class="upholdHeader">JS try to Avoid</h1>
+						</section>
+						<section>
+							<h2 class="lineThrough">Access Same Variable</h2>						
+							<pre><code contenteditable>
+var blah = document.getElementById('myID');
+var blah2 = document.getElementById('myID2');
+var blah3 = document.getElementById('myID3');
+
+
+var blah = document.getElementById('myID'),
+    blah2 = document.getElementById('myID2'),
+    blah3 = document.getElementById('myID3');
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Localize variable</h2>						
+							<pre><code contenteditable>
+var doc = document,
+    blah = doc.getElementById('myID'),
+    blah2 = doc.getElementById('myID2'),
+    blah3 = doc.getElementById('myID3');
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2 class="lineThrough">My For Loop</h2>						
+							<pre><code contenteditable>
+for(var i = 0; i < someArray.length; i++) {  
+   
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Cache outside of loop</h2>						
+							<pre><code contenteditable>
+
+var container = document.getElementById('container');  
+
+for(var i = 0; i < someArray.length; i++) {     
+   
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Little More!!!</h2>						
+							<pre><code contenteditable>
+var container = document.getElementById('container');  
+
+for(var i = 0, len = someArray.length; i < len; i++) {     
+   
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Use === than ==</h2>						
+							<pre><code contenteditable>
+//take form JS conf EU 2013
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Use ==== than ==</h2>						
+							<pre><code contenteditable>
+if ( !MyNamespace ) {
+  var MyNamespace = { };
+}
+
+//or
+var myNamespace = myNamespace || {};
+
+//or http://jsperf.com/conditional-assignment
+// myNamespace || ( myNamespace = {} );
+
+
+//or
+if ( typeof MyNamespace == ’undefined’ ) {
+  var MyNamespace = { };
+}
+							</code></pre>		
+						</section>
+					</section>
+
+
+					<section>
+						<section>
+							<h1 class="upholdHeader">JavaScript: String</h1>
 						</section>
 						<section>
 							<h2 class="lineThrough">String Concatenation</h2>						
@@ -770,8 +876,8 @@ var tinyMessage = 'Trust me, i started one line' +
 		  'So i added a slice of pizza' +
 		  'Client said this is stupid' +
 		  'Manager said, client is right';
-						</code></pre>
-						<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+							</code></pre>
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
 						</section>
 						<section>
 							<h2>[ ].join(' ')</h2>
@@ -786,7 +892,12 @@ var tinyMessage = ['Trust me, i started one line',
 		   'So i added a slice of pizza',
 		   'Client said this is stupid',
 		   'Manager said, client is right'].join(' ');
-						</code></pre>						
+							</code></pre>
+							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
+							<br/>
+							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
 						</section>
 						<!-- <section>
 							<h2>Insted</h2>
@@ -897,7 +1008,110 @@ var fibonacciStr = strBuilder.join(' ');
 <!-- End of commented out prototype and set time out -->						
 
 					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Object Vs Array</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Array </h1>
+							<h3 class="fragment">Same Type </h3>			
+							<h3 class="fragment">Use Full Array</h3>			
+							<h3 class="fragment">Avoid Pre-allocate</h3>
+							<h3 class="fragment">Grow as you Go</h3>			
+							<h3 class="fragment">Avoid delete array elements</h3>			
+							<br/>
+							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>	<br/>
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a><br/>
+							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
 
+						</section>						
+						<section>
+							<h2 class="lineThrough"></h2>						
+							<pre><code contenteditable>
+// Don't do this:
+a = []; // executor knows nothing
+for(var i = 1; i <= 4; i++) {
+	 a.push(i);
+}
+
+// just do it:
+var a = [1, 2, 3, 4];
+							</code></pre>		
+						</section>
+						<section>
+							<h2 class="lineThrough">Delete is not delete</h2>
+							<pre><code contenteditable>
+var myArray = [1,2,3,4, 5,6]; //myArray.length = 6
+
+delete myArray[2]; 
+
+myArray; //[1, 2, undefined × 1, 4, 5,6]
+console.log(myArray.length); // 6
+console.log(myArray[2]); // undefined 
+
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="lineThrough">Array.splice </h2>						
+							<pre><code contenteditable>
+myArray.splice(2,1);
+							</code></pre>		
+						</section>
+						<section>
+							<h1 class="upholdHeader">Objects </h1>
+							<br/>
+							<h3 class="fragment">Varying types properties </h3>			
+							<br/>
+							<h3 class="fragment">Integer-indexed Objects is always faster</h3>			
+							<br/>
+							<h3 class="fragment">Use Object.Create()</h3>			
+							<br/>		
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
+						</section>
+						<section>
+							<h2 class="lineThrough">Delete is not delete</h2>						
+							<pre><code contenteditable>
+var o = { x: 1 }; 
+delete o.x; // true 
+o.x; // undefined
+							</code></pre>		
+							<br/>
+							
+						</section>
+
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Let GC Breathe</h1>
+							<img src="images/garbage.jpg">
+							
+						</section>
+						<section>
+							<h2 class="lineThrough">Holding references</h2>						
+							<pre><code contenteditable>
+function sum (x) {
+  var a = function () {
+    var largeStr = new Array(1000000).join('x');
+	return function () {
+		return largeStr;
+	};
+}();
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>		
+						</section>
+						<section>
+							<h2 class="lineThrough">Trust Arguments</h2>						
+							<pre><code contenteditable>
+if (callback && typeof callback === "function"){
+	/* rest of your logic */
+}else{
+	/* not a valid function */
+}
+
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2011/10/27/lessons-from-a-review-of-javascript-code/">JavaScript Code Review</a>		
+						</section>
+					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">JavaScript: The Good Parts</h1>
@@ -947,17 +1161,7 @@ var add_the_handlers = function (nodes) {
 };
 							</code></pre>
 						</section>
-						<section>
-							<h2>Delete array Element</h2>
-							<pre><code contenteditable>
-var myArray = [1,2,3,4];
-abc.length; //4
-delete myArray[0]; 
-abc.length; //4
-abc; //[1, undefined × 1, 3, 4]
 
-							</code></pre>
-						</section>
 						<section>
 							<h1>Momoization</h1>
 						</section>
@@ -1102,7 +1306,11 @@ memoFooBar(2); // whilst this will need to be calculated
 							</code></pre>
 						</section>					
 					</section>
-					
+						<section>
+							<h1>Review Your Code</h1>
+							<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
+							<a href="http://codereview.stackexchange.com/">Code Review</a>
+						</section>
 						
 						<section>
 							<h1 class="noUppercase">Minify CSS</h1>
