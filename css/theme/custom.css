@@ -28,8 +28,9 @@ body {
 }
 
 .reveal ul li {
-  font-size: 1.5em;
-  line-height: 1.2em;
+  font-size: 1.75em;
+  line-height: 1.3em;
+  color: #4A043F;
 }
 
 /*********************************************
@@ -84,7 +85,7 @@ body {
 .reveal section img {
   margin: 15px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid black;
+  /*border: 4px solid black;*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;

@@ -29,10 +29,17 @@
 				}
 				.reveal h1.upholdHeader{
 				  margin-top: -100px;
+				  margin-left: -25%;
+				  width: 150%;
 				}
 				.mediumFont{
 					font-size: 2em;
 				}
+
+				.reveal code.largeCode {
+					max-height: 600px;
+				}
+
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 			<script>
@@ -71,7 +78,9 @@
 						<section>
 							<img  class="fullScreenImage"  src="http://darthmojo.files.wordpress.com/2008/04/ny03-pizza11.jpg">
 						</section>
-
+						<section>
+							<img class="fullScreenImage" src="images/badBoss.jpg">
+						</section>
 					</section>
 					<section>
 						<section>
@@ -117,7 +126,7 @@
 							<h1>Performance matters ! ! ! !</h1>
 						</section>
 						<section>
-							<h1 class="noUppercase" > Optimization :- </h1>
+							<h1 class="noUppercase upholdHeader" > Optimization :- </h1>
 							<ul class="mediumFont">
 								<li class="fragment noUppercase" >  Addictive</li>
 								<li class="fragment noUppercase" >Subjective</li>
@@ -127,12 +136,21 @@
 							</ul>
 						</section>
 						<section>
-							<h1 class="noUppercase" > Perf !!!</h1>
+							<h1 class="noUppercase" > Expectations !!!</h1>
 							<ul>
-								<li class="fragment noUppercase" >JavaScript</li>
-								<li class="fragment noUppercase" >CSS</li>
 								<li class="fragment noUppercase" >Browser</li>
+								<li class="fragment noUppercase" >CSS</li>
+								<li class="fragment noUppercase" >JavaScript</li>								
+								<li class="fragment noUppercase" >Debug</li>
 							</ul>
+						</section>
+						
+					</section>
+
+					<!-- Start of How Browser Works -->
+					<section>					
+						<section>
+							<img class="fullScreenImage" src="http://i.stack.imgur.com/hIFlk.jpg">
 						</section>
 						<section>
 							<h1 >Browser</h1>
@@ -142,92 +160,495 @@
 								<li class="fragment noUppercase" >Changing</li>
 							</ul>
 						</section>
-						<section>
-							<img class="fullScreenImage" src="http://i.stack.imgur.com/hIFlk.jpg">
-						</section>
-						<section>
+						
+						<!-- <section>
 							<img class="fullScreenImage" src="http://1.media.collegehumor.cvcdn.com/78/58/4fe20a0003ba1c49375468f9ac47950e-which-one-of-these-is-not-a-web-browser.jpg">
-						</section>
+						</section> -->
 
-					</section>
 
-					<!-- Start of How Browser Works -->
-					<section>					
 						<section>
-							<h1 class="noUppercase">How Browser works</h1>
-							<h3>Put the browser Components</h3>			
-							<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">html5rock</a>		
-							<p></p>
+							<h1 class="upholdHeader">Why learn about Browser?</h1>
+							<br/>
+							<ul>
+								<li class="fragment" >Play Ground</li>
+								<li class="fragment" >Geek / Freak </li>
+								<li class="fragment" ></li>
+							</ul>
 						</section>
 						<section>
-							<h1 class="noUppercase">Rendering Engines</h1>
-							<p>Main Flow of Rendering Engine</p>
-							<p>Add the image and also talk about the parts</p>
-							
-						</section>
+							<img src="images/networkFlow.png">
+						</section>						
 						<section>
-							<h1 class="noUppercase">Content Tree or DOM tree</h1>
-							<p></p>
-						</section>
-						<section>
-						<h2>Pretty Code</h2>
+						<h2>Your Html</h2>
 						<pre><code class="javascript" contenteditable>
-	&lt;html&gt;<br/>  &lt;body&gt;<br/>    &lt;p&gt;<br/>      Hello World<br/>    &lt;/p&gt;<br/>    &lt;div&gt; &lt;img src=&quot;example.png&quot;/&gt;&lt;/div&gt;<br/>  &lt;/body&gt;<br/>&lt;/html&gt;					
-		
-	</code></pre>
-						<p> <a href="">html5 rock</a>.</p>
-					</section>
-					<section>
-						<img src="images/domTree.png">
-					</section>
-					<section>
-							<h2>StyleStructure</h2>						
-							<pre><code contenteditable>
-	p,div{
-	  margin-top:3px;
-	}
+&lt;html&gt;<br/>  &lt;body&gt;<br/>    &lt;p&gt;<br/>      Hello World<br/>    &lt;/p&gt;<br/>    &lt;div&gt; &lt;img src=&quot;example.png&quot;/&gt;&lt;/div&gt;<br/>  &lt;/body&gt;<br/>&lt;/html&gt;
 
-	.error {
-	  color:red;
-	}
+	</code></pre>
+						<p> <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a></p>
+					</section>
+
+					<section>
+						<img  class="fullScreenImage"  src="images/domTree.png">
+					</section>
+					<section>
+							<h1 class="noUppercase">Validate Html</h1>
+							<p>Make HTML Parsing Easier</p>
+						</section>
+					<section>
+							<h2>Style</h2>						
+							<pre><code contenteditable>
+p,div{
+  margin-top:3px;
+}
+
+.error {
+  color:red;
+}
 						</code></pre>
 						
 						</section>
 						<section>
-							<img src="images/parsingCSS.png">
+							<img  class="fullScreenImage"  src="images/parsingCSS.png">
 						</section>
-						<section>
-							<h1 class="noUppercase">Validate Html</h1>
-							<p>If didnt put right closing tag</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Render Tree</h1>
-							<p></p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Layout of the render tree</h1>
-							<p></p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Painting render tree</h1>
-							<p></p>
-						</section>
-						<section>
-							<h2>Must add some tree for Right to left</h2>
-							<h3>Build it yourself</h3>
-						</section>
-						<section>
-							<h1>Must Read for Reflow</h1>
-							<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Reflow Layout</a>
-						</section>
-					</section>
-					<section>
-
-					</section>
-					<section>
 						
 						<section>
-							<h1 class="noUppercase">Be reach</h1>						
+							<h1 class="noUppercase">Render Tree</h1>
+							<img src="images/renderTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">So far</h1>
+							<img class="fullScreenImage" src="images/uptoRenderTree.png">
+						</section>
+						<section>
+							<h1>Layout</h1>
+							<img class="fullScreenImage" src="images/layout.png">
+						</section>
+						<section>
+							<h1 class="noUppercase">Paint</h1>
+							<img src="images/painting.png">
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader" >Need to Change</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader" >Avoid Change</h1>
+							<ul>
+								<li class="fragment">Minimum change</li>
+								<li class="fragment">Don't change Layout</li>
+								<li class="fragment">Change Background</li>
+								<li class="fragment">Change Text Color</li>
+								<li class="fragment">Visibility: hidden</li>
+							</ul>
+						</section>
+
+						<section>
+							<h1 class="upholdHeader">Re paint</h1>
+							<img class="fullScreenImage" src="images/rePaint.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader" >More Change, More Work</h1>
+							<ul>
+								
+								<li class="fragment">Change Layout</li>
+								<li class="fragment">Change Width / Height</li>
+								<li class="fragment">Change Font</li>
+								<li class="fragment">Move DOM Node</li>
+								<li class="fragment">Resize Window</li>
+								<li class="fragment">Display: none</li>								
+							</ul>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Re Flow</h1>
+							<img class="fullScreenImage" src="images/reFlow.png">
+						</section>
+						
+						<section>
+							<h1 class="upholdHeader">Must Read for Re flow: in JS parts</h1>
+							<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Re flow Layout</a>
+						</section>
+					</section>
+
+					<section>
+						<section>
+							<h1 class="upholdHeader">How CSS Selectors are Matched</h1>
+							
+						</section>
+						<section>							
+							<pre><code class="largeCode" contenteditable>
+1. &lt;html&gt;<br/>2.  &lt;head&gt;<br/>3.    //head omitted due to lack of brain<br/>4.  &lt;/head&gt;<br/>5.  &lt;body&gt;<br/>6.    &lt;header&gt;<br/>7.      &lt;h1&gt;My Awesome title&lt;/h1&gt;<br/>8.    &lt;/header&gt;<br/>9.    &lt;nav&gt;<br/>10.      &lt;ol&gt;<br/>11.        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;<br/>12.        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;<br/>13.      &lt;/ol&gt;<br/>14.    &lt;/nav&gt;<br/>15.    &lt;section&gt;<br/>16.      &lt;div&gt;<br/>17.        &lt;ul&gt;<br/>18.          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;<br/>19.          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;<br/>20.        &lt;/ul&gt;<br/>21.      &lt;/div&gt;<br/>22.    &lt;/section&gt;<br/>23.  &lt;/body&gt;<br/>24.&lt;/html&gt;
+								</code></pre> 
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/roughDOMTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">li { color: red; }</h1>
+							<ul>								
+								<li class="fragment">Root level</li>
+								<li class="fragment">Run only once</li>								
+							</ul>
+						</section>
+						<section>
+							<h1 class="upholdHeader">nav a {color:green;}</h1>					
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/rightToLeft1.png">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/rightToLeft2.png">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/rightToLeft3.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">nav a { color: green; }</h1>
+							<ul>								
+								<li class="fragment">Right to Left</li>
+								
+							</ul>
+							<br/><br/><br/><br/>
+							<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
+							<br/>
+							<a href="http://islovely.co/blog/writing-high-performance-css/">Use Later: High Performance CSS</a>
+							<br/>
+							<a href="http://www.eddiewelker.com/2011/04/06/high-performance-css-code-design/">Use Later: CSS Code Design</a>
+						</section>
+						<section>
+							<h3>Read the link or show it. or make something </h3>
+							
+						</section>
+					</section>
+
+					<!-- End of Browser -->
+					
+					<section>
+						<h1 class="upholdHeader">Lets Talk little more CSS</h1>
+					</section>
+					
+
+					<section>
+							<img style="width:800px; height:700px;" src="images/css.jpg">	
+					</section>
+
+					<section>					
+						<section>
+							<h1>Efficient CSS selectors</h1>	
+							<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference betwee ID and Class</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/1230636/css-optimization-element-id-vs-class">CSS Optimization</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+							<br/>
+							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">How Browsers Work</a>	
+						</section>
+
+						<section>
+							<h2>Fancy Selectors</h2>
+							<ul>
+								<li>
+									<h3 class = "fragment noUppercase">Child – div > p</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Descendant - div p</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Attribute – input[type="text"], h1[rel="external"]</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
+								</li>		
+							</ul>		
+						</section>
+						<section>
+							<h1>Render Speed</h1>
+						</section>
+						<section>
+							
+							<ul>
+								<li>
+									<h3 class = "fragment noUppercase">ID - #header</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Class – .header</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Tag – div</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Child – div > p</h3>			
+								</li>		
+								<li>
+									<h3 class = "fragment noUppercase">Descendant – div p</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Universal – div *</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Attribute – input[type="text"]</h3>			
+								</li>
+								<li>
+									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
+								</li>				
+							</ul>	
+						<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">writing-efficient-css-selector</a>	
+						</section>
+						<section>
+							<h1>Universal Key Selector</h1>
+						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
+						</section>
+						<section>
+							<h3 class="noUppercase">Avoid Universal Selector</h3>	
+							<pre><code contenteditable>
+
+	body * {...}
+	.hide-scrollbars * {...}
+								</code></pre> 
+						</section>
+						<section>
+							<h3 class="noUppercase">Something is wrong!.</h3>
+							<pre><code contenteditable>
+	#myDiv ul li button 
+	{ 
+	   width:200px;
+	}
+	#myDiv ul li:nth-child(2) li:nth-child(7) > a 
+	{
+	   color:red;
+	}
+								</code></pre> 
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Don't Repeat</h3>
+							<pre><code contenteditable>
+	.upTrend
+	{
+	    background-image:url('upGreen.jpg');
+	    background-repeat:no-repeat;
+	    background-position: center center;
+	    padding-left:20px;          
+	}
+	.downTrend
+	{
+	    background-image:url('downRed.jpg');
+	    background-repeat:no-repeat;
+	    background-position: center center;
+	    padding-left:20px;
+	}
+								</code></pre> 
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Don't</h3>
+							<pre><code contenteditable>
+	.upTrend
+	{
+	    background-image:url('upGreen.jpg') center center no-repeat;
+	    padding-left:20px;          
+	}
+	.downTrend
+	{
+	    background-image:url('downRed.jpg') center center no-repeat;    
+	    padding-left:20px;
+	}
+								</code></pre> 
+						</section>
+						<section>
+							<h3 class="noUppercase">Background Image</h3>
+							<pre><code contenteditable>
+	.upTrend
+	{
+	    background-image:url('upGreen.jpg');            
+	}
+	.downTrend
+	{
+	    background-image:url('downRed.jpg');            
+	}
+
+	.upTrend, .downTrend 
+	{
+	    background-repeat:no-repeat;
+	    background-position: center center;
+	    padding-left:20px;
+	}
+								</code></pre> 
+								<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Use class</h3>
+							<pre><code contenteditable>
+	.btnMedium 
+	{
+	   width:200px;
+	}
+	.myClass 
+	{
+	   color:red;
+	}
+								</code></pre> 
+						</section>
+						<section>
+							<h3 class="noUppercase">As specific as possible.</h3>
+							<pre><code contenteditable>
+	ul li a {...}
+	#footer h3 {...}
+	* html #atticPromo ul li a {...]
+								</code></pre> 
+						</section>
+						<section>
+							<h1>Redundant qualifiers </h1>	
+						</section>
+						<section>
+							<pre><code contenteditable>
+	ul#top_blue_nav {...}
+	form#UserLogin {...}
+								</code></pre> 
+						</section>
+						<!--
+						<section>
+							<h1> CSS expressions</h1>	
+						</section>
+						<section>
+							<pre><code contenteditable>
+						//get from google best practices link before
+								</code></pre> 
+						</section>
+						-->
+						<section>
+							<h1>Check again your child selectors</h1>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
+						</section>
+						<section>
+							<pre><code contenteditable>
+	//don't
+	treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon {…}
+	//do
+	.tree-folderpane-icon[IsImapServer="true"] {…}
+								</code></pre> 
+						</section>
+
+						<section>
+							<pre><code contenteditable>
+						//Dont know about it. learn it
+								</code></pre> 
+						</section>					
+					</section>
+					<section>
+						<h1>Change CSS classes not styles</h1>
+					<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">10-javascript-performance-boosting-tips-from-nicholas-zakas</a>	
+					</section>
+					<section>
+						<h1> Take Advantage of CSS specificity</h1>
+					<a href="http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/">Not very good resource</a>	
+					</section>
+					<section>
+						<pre><code contenteditable>
+	//google it
+	//http://css-tricks.com/specifics-on-css-specificity/
+
+							</code></pre>
+					</section>
+					<section>
+						<h1>Unused CSS</h1>
+							<a href="http://unused-css.com/">detect unused css</a><br/>
+							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Lyaout Engines</a>
+						<br/>
+						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: optimize browser rendering</a>
+					</section>
+					<section>
+						<h1>Jank</h1>
+						<a href="http://jankfree.org/">Jank Free</a>
+					</section>
+
+					<section>
+						<section>
+							<h1 class="noUppercase">Performance Debug</h3>
+							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Performance Debug</h3>
+							<pre><code contenteditable>
+var start = performance.now();
+
+//execute your function
+foobar();
+
+var end = performance.now();
+
+console.log(start - end +'ms');
+							</code></pre> 
+						</section>
+						
+						<section>
+							<h1 class="noUppercase">Timeline Panel</h3>
+							<pre><code contenteditable>
+								
+							</code></pre> 
+						</section>
+						<section>
+							<h1 class="noUppercase">Rectangle</h3>
+							<pre><code contenteditable>
+	
+							</code></pre> 
+						</section>
+						<section>
+							<h1 class="noUppercase">chrome://tracing/</h3>
+							<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Performance Debug</h3>
+							<pre><code contenteditable>
+	
+							</code></pre> 
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Improve JQuery Performance</h1>
+							<a href="http://www.sitepoint.com/efficient-jquery-selectors/">Add the fifth point</a>
+						</section>
+					</section>
+					<!-- Example of nested vertical slides -->
+					<section>
+						<section>
+							<h2>Vertical Slides</h2>
+							<p>
+								Slides can be nested inside of other slides,
+								try pressing <a href="#/2/1">down</a>.
+							</p>
+							<a href="#/2/1" class="image">
+								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+							</a>
+						</section>
+						<section>
+							<h2>Basement Level 1</h2>
+							<p>Press down or up to navigate.</p>
+						</section>
+						<section>
+							<h2>Basement Level 2</h2>
+							<p>Cornify</p>
+							<a class="test" href="http://cornify.com">
+								<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
+							</a>
+						</section>
+						<section>
+							<h2>Basement Level 3</h2>
+							<p>That's it, time to go back up.</p>
+							<a href="#/2" class="image">
+								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+							</a>
+						</section>
+					</section>
+
+					<section>	
+						<section>
+							<h1 class="noUppercase">Unnecessary: could avoid</h1>						
 							<p>.2+.4</p>
 						</section>
 						<section>
@@ -245,20 +666,8 @@
 						</section>
 						<section>
 							<h1 class="noUppercase">Add some more</h1>
-							<p>{}+{}</p>
+							<p>{}+{}</p>						
 						</section>
-							<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>Debounce with Demo</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Add some more</h1>
-							<p>Throttle</p>
-						</section>
-					</section>
-					
-					<!-- Example of nested vertical slides -->
-					<section>
 						<section>
 							<h2>Type related</h2>
 							<p>
@@ -289,8 +698,19 @@
 								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
 							</a>
 						</section>
+					</section>		
+					<section>						
+							<section>
+							<h1 class="noUppercase">Debounce</h1>
+							<p>In JS section</p>
+						</section>
+						<section>
+							<h1 class="noUppercase">Throttle</h1>
+							<p>Throttle</p>
+						</section>
+
 					</section>
-					
+					<!-- Example of nested vertical slides -->
 					<section>
 						<section>
 							<h2>Daily Life</h2>						
@@ -710,327 +1130,7 @@
 							Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 						</aside>
 					</section>				
-					<section>
-							<img style="width:800px; height:700px;" src="images/css.jpg">	
-					</section>
-					<section>
-						<h3>Read the link or show it. or make something </h3>
-						<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
-					</section>
-					<section>					
-						<section>
-							<h1>Efficient CSS selectors</h1>	
-							<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference betwee ID and Class</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/1230636/css-optimization-element-id-vs-class">CSS Optimization</a>
-							<br/>
-							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
-							<br/>
-							<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">How Browsers Work</a>	
-						</section>
-
-						<section>
-							<h2>Fancy Selectors</h2>
-							<ul>
-								<li>
-									<h3 class = "fragment noUppercase">Child – div > p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Descendant - div p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Attribute – input[type="text"], h1[rel="external"]</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
-								</li>		
-							</ul>		
-						</section>
-						<section>
-							<h1>Render Speed</h1>
-						</section>
-						<section>
-							
-							<ul>
-								<li>
-									<h3 class = "fragment noUppercase">ID - #header</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Class – .header</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Tag – div</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Sibling – div + p, div ~ p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Child – div > p</h3>			
-								</li>		
-								<li>
-									<h3 class = "fragment noUppercase">Descendant – div p</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Universal – div *</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Attribute – input[type="text"]</h3>			
-								</li>
-								<li>
-									<h3 class = "fragment noUppercase">Pseudo – p:first-child</h3>			
-								</li>				
-							</ul>	
-						<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">writing-efficient-css-selector</a>	
-						</section>
-						<section>
-							<h1>Universal Key Selector</h1>
-						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>	
-						</section>
-						<section>
-							<h3 class="noUppercase">Avoid Universal Selector</h3>	
-							<pre><code contenteditable>
-
-	body * {...}
-	.hide-scrollbars * {...}
-								</code></pre> 
-						</section>
-						<section>
-							<h3 class="noUppercase">Something is wrong!.</h3>
-							<pre><code contenteditable>
-	#myDiv ul li button 
-	{ 
-	   width:200px;
-	}
-	#myDiv ul li:nth-child(2) li:nth-child(7) > a 
-	{
-	   color:red;
-	}
-								</code></pre> 
-						</section>
-						<section>						
-							<h3 class = "noUppercase">Don't Repeat</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg');
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;          
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg');
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;
-	}
-								</code></pre> 
-						</section>
-						<section>						
-							<h3 class = "noUppercase">Don't</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg') center center no-repeat;
-	    padding-left:20px;          
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg') center center no-repeat;    
-	    padding-left:20px;
-	}
-								</code></pre> 
-						</section>
-						<section>
-							<h3 class="noUppercase">Background Image</h3>
-							<pre><code contenteditable>
-	.upTrend
-	{
-	    background-image:url('upGreen.jpg');            
-	}
-	.downTrend
-	{
-	    background-image:url('downRed.jpg');            
-	}
-
-	.upTrend, .downTrend 
-	{
-	    background-repeat:no-repeat;
-	    background-position: center center;
-	    padding-left:20px;
-	}
-								</code></pre> 
-								<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
-						</section>
-						<section>						
-							<h3 class = "noUppercase">Use class</h3>
-							<pre><code contenteditable>
-	.btnMedium 
-	{
-	   width:200px;
-	}
-	.myClass 
-	{
-	   color:red;
-	}
-								</code></pre> 
-						</section>
-						<section>
-							<h3 class="noUppercase">As specific as possible.</h3>
-							<pre><code contenteditable>
-	ul li a {...}
-	#footer h3 {...}
-	* html #atticPromo ul li a {...]
-								</code></pre> 
-						</section>
-						<section>
-							<h1>Redundant qualifiers </h1>	
-						</section>
-						<section>
-							<pre><code contenteditable>
-	ul#top_blue_nav {...}
-	form#UserLogin {...}
-								</code></pre> 
-						</section>
-						<!--
-						<section>
-							<h1> CSS expressions</h1>	
-						</section>
-						<section>
-							<pre><code contenteditable>
-						//get from google best practices link before
-								</code></pre> 
-						</section>
-						-->
-						<section>
-							<h1>Check again your child selectors</h1>
-								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering guides</a>
-						</section>
-						<section>
-							<pre><code contenteditable>
-	//don't
-	treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon {…}
-	//do
-	.tree-folderpane-icon[IsImapServer="true"] {…}
-								</code></pre> 
-						</section>
-
-						<section>
-							<pre><code contenteditable>
-						//Dont know about it. learn it
-								</code></pre> 
-						</section>					
-					</section>
-					<section>
-						<h1>Change CSS classes not styles</h1>
-					<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">10-javascript-performance-boosting-tips-from-nicholas-zakas</a>	
-					</section>
-					<section>
-						<h1> Take Advantage of CSS specificity</h1>
-					<a href="http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/">Not very good resource</a>	
-					</section>
-					<section>
-						<pre><code contenteditable>
-	//google it
-	//http://css-tricks.com/specifics-on-css-specificity/
-
-							</code></pre>
-					</section>
-					<section>
-						<h1>Unused CSS</h1>
-							<a href="http://unused-css.com/">detect unused css</a><br/>
-							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Lyaout Engines</a>
-						<br/>
-						<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: optimize browser rendering</a>
-					</section>
-					<section>
-						<h1>Jank</h1>
-						<a href="http://jankfree.org/">Jank Free</a>
-					</section>
-
-					<section>
-						<section>
-							<h1 class="noUppercase">Performance Debug</h3>
-							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Performance Debug</h3>
-							<pre><code contenteditable>
-var start = performance.now();
-
-//execute your function
-foobar();
-
-var end = performance.now();
-
-console.log(start - end +'ms');
-							</code></pre> 
-						</section>
-						
-						<section>
-							<h1 class="noUppercase">Timeline Panel</h3>
-							<pre><code contenteditable>
-								
-							</code></pre> 
-						</section>
-						<section>
-							<h1 class="noUppercase">Rectangle</h3>
-							<pre><code contenteditable>
-	
-							</code></pre> 
-						</section>
-						<section>
-							<h1 class="noUppercase">chrome://tracing/</h3>
-							<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Performance Debug</h3>
-							<pre><code contenteditable>
-	
-							</code></pre> 
-						</section>
-					</section>
-					<section>
-						<section>
-							<h1>Improve JQuery Performance</h1>
-							<a href="http://www.sitepoint.com/efficient-jquery-selectors/">Add the fifth point</a>
-						</section>
-					</section>
-					<!-- Example of nested vertical slides -->
-					<section>
-						<section>
-							<h2>Vertical Slides</h2>
-							<p>
-								Slides can be nested inside of other slides,
-								try pressing <a href="#/2/1">down</a>.
-							</p>
-							<a href="#/2/1" class="image">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-							</a>
-						</section>
-						<section>
-							<h2>Basement Level 1</h2>
-							<p>Press down or up to navigate.</p>
-						</section>
-						<section>
-							<h2>Basement Level 2</h2>
-							<p>Cornify</p>
-							<a class="test" href="http://cornify.com">
-								<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-							</a>
-						</section>
-						<section>
-							<h2>Basement Level 3</h2>
-							<p>That's it, time to go back up.</p>
-							<a href="#/2" class="image">
-								<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-							</a>
-						</section>
-					</section>
-
+					
 					<section>
 						<h2>Point of View</h2>
 						<p>
