@@ -1236,6 +1236,64 @@ memoFooBar(2); // whilst this will need to be calculated
 							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
 						</section>
 					</section>
+		
+					<section>
+						<section>
+							<h1 class="upholdHeader"> JavaScript Others</h1>
+						</section>						
+						<section>
+							<h1 class="upholdHeader">Reduce Global</h1>
+							<pre><code>
+var current = null;
+function init(){...}
+function change(){...}
+function verify(){...}								
+							</code></pre>
+							<pre class="fragment"><code>
+var myNameSpace = {
+  current:null,
+  init:function(){...},
+  change:function(){...},
+  verify:function(){...}
+}
+
+myNameSpace.init();
+
+							</code></pre>
+							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
+							<br/>
+							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
+						</section>
+						<section>
+							<h2>Self executing function</h2>
+							<pre><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+  function verify(){...}
+})();							
+							</code></pre>	
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>
+
+					<section>
+						<section>
+							<h1 class="upholadHeader">Know V8</h1>							
+						</section>
+						<section>
+							<ul>
+								<li>V8 Optimization Tips</li>
+								<li>Avoid Memory Leaks</li>
+							</ul>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
+					</section>
 
 					<section>
 						<section>
@@ -1244,21 +1302,22 @@ memoFooBar(2); // whilst this will need to be calculated
 							
 						</section>
 						<section>
-							<h2>Don't use it for five lines of Code</h2>
+							<h2 class="upholdHeader">Don't use it for 3 lines of Code</h2>
 							<pre><code>
 $(document).ready(function () {
    alert('document is ready. I can sleep now');            
 });
 							</code></pre>
-							<pre class="fragment"> <code>
+							<h3 class="fragment">Script as Last Tag of body</h3>
+							<h3 class="fragment">Self Executing function</h3>
+							<pre class="fragment"><code>
 document.onreadystatechange = function () {
   //docuemnt ready. dont work for older browser or IE
   if (document.readyState == "complete") {
       alert('document is ready. I can sleep now');
   }
 }							</code></pre>
-							<br/>
-							<a class="fragment" href="http://code.jquery.com/jquery-2.0.3.js">Copy ready: function from JQuery source</a>
+							<h4 class="fragment">Copy ready: function from JQuery</h4>
 							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a>
 						</section>
 						<section>
@@ -1306,40 +1365,12 @@ $( "ul.nav" ).each(function( index ) {
   $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
 });
 							</code></pre>
-							<p class="fragment">Remember :: => JQuery is not Database</p>
+							<p class="fragment">Remember :=> JQuery is not Database</p>
 							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
 							<br/>
 							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
 						</section>
 					</section>
-
-		
-					<section>						
-						<section>
-							<h1 class="upholdHeader">Reduce Global</h1>
-							<p>Shelf Executing Function</p>
-							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Debounce & Throttle</h1>
-							<br/>
-							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
-						</section>
-					</section>
-
-					<section>
-						<section>
-							<h1 class="upholadHeader">Know V8</h1>							
-						</section>
-						<section>
-							<ul>
-								<li>V8 Optimization Tips</li>
-								<li>Avoid Memory Leaks</li>
-							</ul>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
-						</section>
-					</section>
-
 					<section>
 						<section>
 							<h1 class="noUppercase">Performance Debug</h3>
