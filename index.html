@@ -270,7 +270,7 @@ p,div{
 
 						<section>
 							<h1 class="upholdHeader">Re paint</h1>
-							<img class="fullScreenImage" src="images/rePaint.png">
+							<img class="fullScreenImage" src="images/repaint.png">
 						</section>
 						<section>
 							<h1 class="upholdHeader" >More Changes => More Work</h1>
@@ -691,7 +691,8 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 						</section>
 						<section>
 							<h2 class="upholdHeader">Browser Evaluates Styles?</h2>
-							<h1 class="fragment">Right to Left</h1>
+							<h1 style="color:red;" class="fragment">Right to Left</h1>
+							<h1 style="color:gray;"><=</h1>
 								
 							<br/><br/><br/><br/>
 							<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
@@ -1235,6 +1236,79 @@ memoFooBar(2); // whilst this will need to be calculated
 							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
 						</section>
 					</section>
+		
+					<section>
+						<section>
+							<h1 class="upholdHeader"> JavaScript Others</h1>
+						</section>						
+						<section>
+							<h1 class="upholdHeader">Reduce Global</h1>
+							<pre><code>
+var current = null;
+function init(){...}
+function change(){...}
+function verify(){...}								
+							</code></pre>
+							<pre class="fragment"><code>
+var myNameSpace = {
+  current:null,
+  init:function(){...},
+  change:function(){...},
+  verify:function(){...}
+}
+
+myNameSpace.init();
+
+							</code></pre>
+							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
+							<br/>
+							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
+						</section>
+						<section>
+							<h2>Self executing function</h2>
+							<pre><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+  function verify(){...}
+})();							
+							</code></pre>	
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+						<section>
+							<h2>Use Strict Mode</h2>
+							<pre><code>
+// Non-strict code...
+ 
+(function(){
+  "use strict";
+ 
+  // Define your library strictly...
+})();
+ 
+// Non-strict code...
+							</code></pre>
+							
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
+						</section>
+						<section>
+							<h2 class="upholdHeader">Know Javascript Engine</h2>							
+							<ul>
+								<li>Know V8</li>
+								<li>Hidden Class</li>
+								<li>Avoid Memory Leaks</li>
+								<li>Compile browser</li>
+							</ul>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
+					</section>
+
 
 					<section>
 						<section>
@@ -1243,21 +1317,22 @@ memoFooBar(2); // whilst this will need to be calculated
 							
 						</section>
 						<section>
-							<h2>Don't use it for five lines of Code</h2>
+							<h2 class="upholdHeader">Don't use it for 3 lines of Code</h2>
 							<pre><code>
 $(document).ready(function () {
    alert('document is ready. I can sleep now');            
 });
 							</code></pre>
-							<pre class="fragment"> <code>
+							<h3 class="fragment">Script as Last Tag of body</h3>
+							<h3 class="fragment">Self Executing function</h3>
+							<pre class="fragment"><code>
 document.onreadystatechange = function () {
   //docuemnt ready. dont work for older browser or IE
   if (document.readyState == "complete") {
       alert('document is ready. I can sleep now');
   }
 }							</code></pre>
-							<br/>
-							<a class="fragment" href="http://code.jquery.com/jquery-2.0.3.js">Copy ready: function from JQuery source</a>
+							<h4 class="fragment">Copy ready: function from JQuery</h4>
 							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a>
 						</section>
 						<section>
@@ -1305,44 +1380,12 @@ $( "ul.nav" ).each(function( index ) {
   $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
 });
 							</code></pre>
-							<p class="fragment">Remember :: => JQuery is not Database</p>
+							<p class="fragment">Remember :=> JQuery is not Database</p>
 							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
 							<br/>
 							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
 						</section>
 					</section>
-
-		
-					<section>						
-						<section>
-							<h1 class="upholdHeader">Reduce Global</h1>
-							<p>Shelf Executing Function</p>
-							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Debounce</h1>
-							<p>In JS section</p>
-						</section>
-						<section>
-							<h1 class="noUppercase">Throttle</h1>
-							<p>Throttle</p>
-						</section>
-
-					</section>
-
-					<section>
-						<section>
-							<h1 class="upholadHeader">Know V8</h1>							
-						</section>
-						<section>
-							<ul>
-								<li>V8 Optimization Tips</li>
-								<li>Avoid Memory Leaks</li>
-							</ul>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
-						</section>
-					</section>
-
 					<section>
 						<section>
 							<h1 class="noUppercase">Performance Debug</h3>
@@ -1406,17 +1449,13 @@ console.log(start - end +'ms');
 						<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
 					</section>
 
-						<section>
-							<h1>Review Your Code</h1>
-							<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
-							<a href="http://codereview.stackexchange.com/">Code Review</a>
-						</section>
-						
 					<section>
-						<h2>Use Strict Mode in JS file or even inside function</h2>
-						<a href="http://johnkpaul.github.io/presentations/ncdevcon/2013/javascript-bad-parts/">NC dev link with run</a>
-						
-					</section>				
+						<h1>Review Your Code</h1>
+						<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
+						<a href="http://codereview.stackexchange.com/">Code Review</a>
+					</section>
+					
+									
 									
 					<section>	
 						<section>
@@ -1432,18 +1471,29 @@ console.log(start - end +'ms');
 						</section>
 					</section>
 					<section>
-						<h1 class="upholdHeader">promise().then()</h1>
-						<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
-						<br/>
-						<a href="http://underscorejs.org/underscore.js">UnderScore or JQuery source code </a>
-						<br/>
-						<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
-						<br/>
-						<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>
-						<br/>
-						<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">asm.js: JS compile Target</a>
-						<br/>
-						<a href="http://lodash.com/">Lo-dash</a>
+						<section>
+							<h1 class="upholdHeader">promise().then()</h1>
+							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
+							<br/>
+							<a href="http://underscorejs.org/underscore.js">UnderScore or JQuery source code </a>
+							<br/>
+							<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
+							<br/>
+							<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">asm.js: JS compile Target</a>
+							<br/>
+							<a href="http://lodash.com/">Lo-dash</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Take Away</h1>
+							<ul>
+								<li class="fragment">Nothing is absolutely right</li>
+								<li class="fragment">Don't TrUst rUleZ bLiNdLy</li>
+								<li class="fragment">TrUst tOOls, not RuLeS</li>
+							</ul>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>
+							
+						</section>
 					</section>
 					<section>
 						<h1>Thank You</h1>
