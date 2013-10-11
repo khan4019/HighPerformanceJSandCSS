@@ -68,7 +68,9 @@
 <!-- start of intro -->
 					<section>
 						<h1>High Performance JS & CSS</h1>					
-						<br/><br/><br/>
+						<br/>
+						<h2><a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a> </h2>
+						<br/><br/>
 						<p>
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						</p>
@@ -181,7 +183,6 @@
 							<ul>
 								<li class="fragment" >Play Ground</li>
 								<li class="fragment" >Geek / Freak </li>
-								<li class="fragment lineThrough" >Unintended Feature</li>
 							</ul>
 						</section>
 						<section>
@@ -262,7 +263,7 @@ p,div{
 							<ul>
 								<li class="fragment">Minimum change</li>
 								<li class="fragment">Don't change Layout</li>
-								<li class="fragment">Change Background</li>
+								<li class="fragment">Change Background Color</li>
 								<li class="fragment">Change Text Color</li>
 								<li class="fragment">Visibility: hidden</li>
 							</ul>
@@ -353,7 +354,7 @@ p,div{
 							</code></pre> 
 						</section>
 						<section>
-							<h1 class="upholdHeader">Immediate children</h1>
+							<h2 class="upholdHeader">Immediate Children</h2>
 							<pre><code class="largeCode" contenteditable>
 1. &lt;style&gt;
 2.  li &gt; ul
@@ -394,7 +395,7 @@ p,div{
 								
 								<h3 class = "fragment">div ~ p {  /*Sibling*/ }</h3>			
 								
-								<h3 class = "fragment">input[type="text"] { /*Attribute*/}</h3>			
+								<h4 class = "fragment">input[type="checkbox"] { /*Attribute*/}</h4>			
 								
 								<h3 class = "fragment">p:first-child { /*pseudo*/}</h3>			
 								<br/>
@@ -438,7 +439,7 @@ p,div{
 							<br/>
 							<h3 class = "fragment">Universal – div *</h3>			
 							<br/>
-							<h3 class = "fragment">Attribute – input[type="text"]</h3>			
+							<h4></h4> class = "fragment">Attribute – input[type="checkbox"]</h4>			
 							<br/>
 							<h3 class = "fragment">Pseudo – p:first-child</h3>			
 							<br/>
@@ -837,7 +838,7 @@ typeof thing == 'function'; //always be string
 myArray.length == 0;  //will always be number
 mySting.indexOf('x') == 0;
 							</code></pre>
-							<br/>	
+							
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
 						</section>
 						<section>
@@ -1023,7 +1024,7 @@ var fibonacciStr = strBuilder.join(' ');
 							<h3 class="fragment">Use Full Array</h3>			
 							<h3 class="fragment">Avoid Pre-allocate</h3>
 							<h3 class="fragment">Grow as you Go</h3>			
-							<h3 class="fragment">Avoid delete array elements</h3>			
+							
 							<br/>
 							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>	<br/>
 							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a><br/>
@@ -1046,7 +1047,7 @@ var a = [1, 2, 3, 4];
 						<section>
 							<h2 class="lineThrough">Delete is not delete</h2>
 							<pre><code contenteditable>
-var myArray = [1,2,3,4, 5,6]; //myArray.length = 6
+var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
 
 delete myArray[2]; 
 
@@ -1094,7 +1095,7 @@ o.x; // undefined
 						<section>
 							<h2 class="lineThrough">Holding references</h2>						
 							<pre><code contenteditable>
-function sum (x) {
+function getLargeThing (x) {
   var a = function () {
     var largeStr = new Array(1000000).join('x');
 	return function () {
@@ -1254,7 +1255,7 @@ memoFooBar(2); // whilst this will need to be calculated
 var current = null;
 function init(){...}
 function change(){...}
-function verify(){...}								
+function verify(){...}
 							</code></pre>
 							<pre class="fragment"><code>
 var myNameSpace = {
@@ -1288,6 +1289,11 @@ myNameSpace.init();
 							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
 						</section>
 						<section>
+							<h2>Re-think try-catch</h2>
+							<img src="images/tryCatch.jpg">
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+						</section>
+						<section>
 							<h2>Use Strict Mode</h2>
 							<pre><code>
 // Non-strict code...
@@ -1303,6 +1309,7 @@ myNameSpace.init();
 							
 							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
 						</section>
+
 						<section>
 							<h2 class="upholdHeader">Know Javascript Engine</h2>							
 							<ul>
@@ -1406,7 +1413,7 @@ $( "ul.nav" ).each(function( index ) {
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Performance Debug</h3>
+							<h1 class="upholdHeader">Performance Debug</h1>
 							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>
 							<br/>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
@@ -1414,7 +1421,7 @@ $( "ul.nav" ).each(function( index ) {
 							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Performance Debug</h3>
+							<h2 class="upholdHeader">Performance Debug</h2>
 							<pre><code contenteditable>
 var start = performance.now();
 
@@ -1425,6 +1432,7 @@ var end = performance.now();
 
 console.log(start - end +'ms');
 							</code></pre> 
+							<a href="http://www.2ality.com/2013/10/console-api.html">Axel Rauschmayer: JS Console API</a>
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
 							<br/>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
@@ -1442,7 +1450,7 @@ console.log(start - end +'ms');
 							<a href="https://code.google.com/p/leak-finder-for-javascript/">Leak Finder</a>
 						</section>
 						<section>
-							<h1 class="noUppercase">chrome://tracing</h3>
+							<h2 class="noUppercase">chrome://tracing</h2>
 							<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
 							<br/>
 							<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
@@ -1497,12 +1505,11 @@ console.log(start - end +'ms');
 							<a href="http://lodash.com/">Lo-dash</a>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Take Away</h1>
+							<h2 class="upholdHeader">Take Away</h2>
 							<ul>
 								<li class="fragment">Nothing is absolutely right</li>
-								<li class="fragment">Don't TrUst rUleZ bLiNdLy</li>
-								<li class="fragment">TrUst tOOls, not RuLeS</li>
 							</ul>
+							<h1 style="color:red" class="fragment">trust Tools, <span class="lineThrough">not Rules<span></h1>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>
 							
@@ -1510,7 +1517,8 @@ console.log(start - end +'ms');
 					</section>
 					<section>
 						<h1>Thank You</h1>
-						<h3>presentation link</h3>
+						<br/>
+						<h2><a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a> </h2>
 						<br/>
 						<br/>
 						<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
