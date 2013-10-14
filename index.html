@@ -160,7 +160,7 @@
 					<!-- Start of How Browser Works -->
 					<section>					
 						<section>
-							<h1 class="upholdHeader">Browser</h1>
+							<h2 class="upholdHeader">How Browser Works??</h2>
 							<img class="fullScreenImage" src="http://i.stack.imgur.com/hIFlk.jpg">
 						</section>
 						<section>
@@ -184,11 +184,18 @@
 								<li class="fragment" >Play Ground</li>
 								<li class="fragment" >Geek / Freak </li>
 							</ul>
-						</section>
+						</section> 
 						<section>
 							<img src="images/networkFlow.png">
 							<p> <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a></p>
-						</section>						
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequest.png" alt="">
+							<a href="http://www.w3.org/TR/navigation-timing/">W3.org: navigation-timing</a>
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
+						</section>
 						<section>
 						<h2>Your Html</h2>
 						<pre><code contenteditable>
@@ -274,7 +281,7 @@ p,div{
 							<img class="fullScreenImage" src="images/repaint.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader" >More Changes => More Work</h1>
+							<h1 class="upholdHeader" >More Changes =&gt; More Work</h1>
 							<ul>
 								<li class="fragment">Change Layout</li>
 								<li class="fragment">Change Width / Height</li>
@@ -289,7 +296,7 @@ p,div{
 							<img class="fullScreenImage" src="images/reFlow.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader">Avoid Re flow</h1>
+							<h1 class="upholdHeader">Try to Avoid Re flow</h1>
 							
 							<p class="fragment">Use DOM DocumentFragment </p>
 							<h2 class="fragment">Clone the DOM</h2>
@@ -639,7 +646,7 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 								
 						</section>
 					</section>
-										<section>
+					<section>
 						<section>
 							<h1 class="upholdHeader">How CSS Selectors are Matched</h1>
 							
@@ -673,12 +680,12 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 								</code></pre> 
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/roughDOMTreeWithHTML.png">
+							<img class="fullScreenImage" src="images/roughDOMTreeWithHTML2.png">
 						</section>
 						<section>
 							<h1 class="upholdHeader">li { color: red; }</h1>
 							<ul>								
-								<li class="fragment">Root level</li>
+								<!-- <li class="fragment">Root level</li> -->
 								<li class="fragment">Run only once</li>								
 							</ul>
 						</section>
@@ -697,10 +704,13 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 							<h2 class="upholdHeader">nav a {color:green;}</h2>
 							<img class="fullScreenImage" src="images/rightToLeft3.png">
 						</section>
+						<section>							
+							<img class="fullScreenImage" src="images/htmlTree.png">
+						</section>
 						<section>
-							<h2 class="upholdHeader">Browser Evaluates Styles?</h2>
+							<h2 class="upholdHeader">Browser Evaluates Selectors?</h2>
 							<h1 style="color:red;" class="fragment">Right to Left</h1>
-							<h1 style="color:gray;"><=</h1>
+							<h1 style="color:gray;">&lt;=</h1>
 								
 							<br/><br/><br/><br/>
 							<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
@@ -1398,7 +1408,7 @@ $( "ul.nav" ).each(function( index ) {
   $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
 });
 							</code></pre>
-							<p class="fragment">Remember :=> JQuery is not Database</p>
+							<p class="fragment">Remember :=&gt; JQuery is not Database</p>
 							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
 							<br/>
 							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
