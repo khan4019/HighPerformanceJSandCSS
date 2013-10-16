@@ -79,6 +79,12 @@
 						<section>
 							<h1 class="upholdHeader">Secret</h1>
 							<img  class="fullScreenImage"  src="http://www.norwoodbusinessnc.com/wp-content/uploads/2012/12/success.jpg">
+						</section>						
+						<section>
+							<img src="images/redBull.jpg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img src="images/redBullWings.jpeg" alt="" class="fullScreenImage">
 						</section>
 						<section>
 							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
@@ -160,7 +166,7 @@
 					<!-- Start of How Browser Works -->
 					<section>					
 						<section>
-							<h1 class="upholdHeader">Browser</h1>
+							<h2 class="upholdHeader">How Browser Works??</h2>
 							<img class="fullScreenImage" src="http://i.stack.imgur.com/hIFlk.jpg">
 						</section>
 						<section>
@@ -184,11 +190,18 @@
 								<li class="fragment" >Play Ground</li>
 								<li class="fragment" >Geek / Freak </li>
 							</ul>
-						</section>
+						</section> 
 						<section>
 							<img src="images/networkFlow.png">
 							<p> <a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a></p>
-						</section>						
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequest.png" alt="">
+							<a href="http://www.w3.org/TR/navigation-timing/">W3.org: navigation-timing</a>
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
+						</section>
 						<section>
 						<h2>Your Html</h2>
 						<pre><code contenteditable>
@@ -274,7 +287,7 @@ p,div{
 							<img class="fullScreenImage" src="images/repaint.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader" >More Changes => More Work</h1>
+							<h1 class="upholdHeader" >More Changes =&gt; More Work</h1>
 							<ul>
 								<li class="fragment">Change Layout</li>
 								<li class="fragment">Change Width / Height</li>
@@ -289,7 +302,7 @@ p,div{
 							<img class="fullScreenImage" src="images/reFlow.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader">Avoid Re flow</h1>
+							<h1 class="upholdHeader">Try to Avoid Re flow</h1>
 							
 							<p class="fragment">Use DOM DocumentFragment </p>
 							<h2 class="fragment">Clone the DOM</h2>
@@ -639,7 +652,7 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 								
 						</section>
 					</section>
-										<section>
+					<section>
 						<section>
 							<h1 class="upholdHeader">How CSS Selectors are Matched</h1>
 							
@@ -673,12 +686,12 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 								</code></pre> 
 						</section>
 						<section>
-							<img class="fullScreenImage" src="images/roughDOMTreeWithHTML.png">
+							<img class="fullScreenImage" src="images/roughDOMTreeWithHTML2.png">
 						</section>
 						<section>
 							<h1 class="upholdHeader">li { color: red; }</h1>
 							<ul>								
-								<li class="fragment">Root level</li>
+								<!-- <li class="fragment">Root level</li> -->
 								<li class="fragment">Run only once</li>								
 							</ul>
 						</section>
@@ -697,10 +710,13 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 							<h2 class="upholdHeader">nav a {color:green;}</h2>
 							<img class="fullScreenImage" src="images/rightToLeft3.png">
 						</section>
+						<section>							
+							<img class="fullScreenImage" src="images/htmlTree.png">
+						</section>
 						<section>
-							<h2 class="upholdHeader">Browser Evaluates Styles?</h2>
+							<h2 class="upholdHeader">Browser Evaluates Selectors?</h2>
 							<h1 style="color:red;" class="fragment">Right to Left</h1>
-							<h1 style="color:gray;"><=</h1>
+							<h1 style="color:gray;">&lt;=</h1>
 								
 							<br/><br/><br/><br/>
 							<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
@@ -1398,7 +1414,7 @@ $( "ul.nav" ).each(function( index ) {
   $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
 });
 							</code></pre>
-							<p class="fragment">Remember :=> JQuery is not Database</p>
+							<p class="fragment">Remember :=&gt; JQuery is not Database</p>
 							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
 							<br/>
 							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
@@ -1425,6 +1441,39 @@ $( "ul.nav" ).each(function( index ) {
 							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
 						</section>
 						<section>
+							<h2 class="upholdHeader">Console API</h2>
+							<pre><code>
+//test
+console.assert(myArray.length >5, "More than 5 elements");
+
+//hit count
+console.count("Number of times entered");
+
+//JS represents of Obj
+console.dir(document.body);
+
+//trace
+console.trace();
+							</code></pre>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
+							<br/>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
+						</section>
+						<section>
+							<h2>More Console</h2>
+							<pre><code>
+console.time("Array initialize");
+
+var array= new Array(1000000);
+
+for (var i = array.length - 1; i >= 0; i--) {
+    array[i] = new Object();
+};
+
+console.timeEnd("Array initialize");
+							</code></pre>
+						</section>
+						<section>
 							<h2 class="upholdHeader">Performance Debug</h2>
 							<pre><code contenteditable>
 var start = performance.now();
@@ -1439,9 +1488,7 @@ console.log(start - end +'ms');
 							<a href="http://www.2ality.com/2013/10/console-api.html">Axel Rauschmayer: JS Console API</a>
 							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
 							<br/>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
-							<br/>
-							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
+
 						</section>
 						<section>
 							<h1 class="noUppercase">Rectangle</h1>
@@ -1450,6 +1497,8 @@ console.log(start - end +'ms');
 						<section>
 							<h1 class="upholdHeader">Memory Profiling</h1>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
 							<br/>
 							<a href="https://code.google.com/p/leak-finder-for-javascript/">Leak Finder</a>
 						</section>
