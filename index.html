@@ -1472,7 +1472,16 @@ $( "ul.nav" ).each(function( index ) {
 							<a href="https://developers.google.com/speed/articles/include-scripts-properly">Properly include style and scripts</a>
 						</section>
 						<section>
-							<h1>Async or Defer</h1>
+							<h2>Async Vs Defer</h2>
+							<h4>Dont block</h4>
+							<pre><code>
+&lt;script src=&quot;file-a.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;file-b.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;file-c.js&quot; async&gt;&lt;/script&gt;
+							</code></pre>
+							<img class="slide" src="images/asyncVsDefer.jpg">
+							<br/>
+							<a class=" refName" href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">Async Vs Defer</a>
 						</section>
 						<section>
 							<h1>small in line</h1>
