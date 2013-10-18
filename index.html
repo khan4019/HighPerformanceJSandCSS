@@ -765,7 +765,8 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 						</section>
 						<section>
 							<h1>Jank</h1>
-
+							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
+							<br/>
 							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
@@ -1311,6 +1312,31 @@ myNameSpace.init();
 							</code></pre>	
 						</section>
 						<section>
+							<h2>Parallax</h2>
+							<h3>Read more about it</h3>
+							<pre><code>
+window.onscroll = function(e) {
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.marginTop = (window.scrollY/2) + 'px';
+ 
+}								
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+ 
+  // note: most browsers presently use prefixes: webkitTransform, mozTransform etc.
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
+ 
+}								
+							</code></pre>
+							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
+						</section>
+						<section>
 							<h1 class="noUppercase">Debounce & Throttle</h1>
 							<h2>Defer</h2>
 							<br/>
@@ -1583,6 +1609,8 @@ console.log(start - end +'ms');
 						<section>
 							<h1 class="upholdHeader">Memory Profiling</h1>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Long paint times profiling</a>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
 							<br/>
