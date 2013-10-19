@@ -1375,88 +1375,7 @@ myNameSpace.init();
 							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
 						</section>
 					</section>
-					<section>
-						<section>
-							<h1>Jank</h1>
-							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
-							<br/>
-							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
-							<br/>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
-							<br/>
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br/>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Scroll could be scary!</h1>
-							<p class="purpleBold fragment">Scroll and hover effect at the same time</p>
-							<br/>
-							<br/>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>
-							<br/>
-							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>
-						</section>
-						<section>
-							<h2>Do you really need to Paint</h2>
-							<ul>
-								<li class="fragment">position:fixed</li>
-								<li class="fragment">overflow:scroll</li>
-								<li class="fragment">hover effect</li>
-								<li class="fragment">touch listeners</li>
-								<li class="fragment">Image resize</li>
-							</ul>
-							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15"><Jank-busters/a>
-						</section>
-						<section>
-							<h1 class="upholdHeader">abc</h1>
-							<br/>
-							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
-							<br/>
-							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
-						</section>
-						<section>
-							<h2>requestAnimationFrame (rAF)</h2>
-							<p class="fragment">Browser dynamically adjust to keep frame rate normal.</p>
-							<ul>
-								<p class="fragment purpleBold">Decouple events from animation</p>
-								<p class="fragment purpleBold">Avoid animation that causes reflow-repaint loops </p>
-								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
-								<br/>
-								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
-								<br/>
-								<a href="http://caniuse.com/requestanimationframe">can i use: rFA</a>
-							</ul>
-						</section>
-						<section>
-							<h2>Parallax</h2>							
-							<pre><code class="largeCode">
-window.onscroll = function(e) { 
-  var parallax = document.getElementById('parallax-background'); 
-  parallax.style.marginTop = (window.scrollY/2) + 'px';
- 
-}								
-							</code></pre>
-							<pre class="fragment"><code>
-window.onscroll = function(e) {
- 
-  // could use prefixes: webkitTransform, mozTransform etc.
- 
-  var parallax = document.getElementById('parallax-background');
- 
-  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
- 
-}								
-							</code></pre>
-							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
-						</section>
-						<section>
-							<h1 class="noUppercase">Debounce & Throttle</h1>
-							<h2>Defer</h2>
-							<br/>
-							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
-						</section>
-					</section>	
-
+					
 					<section>
 						<section>
 							<h1>JQuery</h1>
@@ -1612,6 +1531,89 @@ $( "ul.nav" ).each(function( index ) {
 							<a href="http://www.7-zip.org/">7-zip</a>
 						</section>
 					</section>
+					<section>
+						<section>
+							<h1>Jank</h1>
+							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
+							<br/>
+							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
+							<br/>
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br/>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Scroll could be scary!</h1>
+							<p class="purpleBold fragment">Scroll and hover effect at the same time</p>
+							<br/>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>
+						</section>
+						<section>
+							<h2>Something else make Scroll bad!</h2>
+							<ul>
+								<li>position:fixed</li>
+								<li class="fragment">overflow:scroll</li>
+								<li class="fragment">hover effect</li>
+								<li class="fragment">touch listeners</li>
+								<li class="fragment">Image resize</li>
+							</ul>
+							<a href="http://stackoverflow.com/questions/12969228/chrome-slow-scrolling-with-fixed-position-elements">slow scroll with fixed position</a>
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">Jank-busters</a>
+						</section>
+<!-- 						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
+						</section> -->
+						<section>
+							<h2>requestAnimationFrame (rAF)</h2>
+							<p class="fragment">Browser dynamically adjust to keep frame rate normal.</p>
+							<ul>
+								<p class="fragment purpleBold">Decouple events from animation</p>
+								<p class="fragment purpleBold">Avoid animation that causes reflow-repaint loops </p>
+								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
+								<br/>
+								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
+								<br/>
+								<a href="http://caniuse.com/requestanimationframe">can i use: rFA</a>
+							</ul>
+						</section>
+						<section>
+							<h2>Parallax</h2>							
+							<pre><code class="largeCode">
+window.onscroll = function(e) { 
+  var parallax = document.getElementById('parallax-background'); 
+  parallax.style.marginTop = (window.scrollY/2) + 'px';
+ 
+}								
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+ 
+  // could use prefixes: webkitTransform, mozTransform etc.
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
+ 
+}								
+							</code></pre>
+							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>	
+
 					<section>
 						<section>
 							<h1 class="upholdHeader">Performance Debug</h1>
