@@ -771,17 +771,6 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 								
 							
 						</section>
-						<section>
-							<h1>Jank</h1>
-							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
-							<br/>
-							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
-							<br/>
-							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
-							<br/>
-							<a href="http://jankfree.org/">Jank Free</a>
-							<br/>
-						</section>
 					</section>
 <!-- End of CSS	 -->
 				
@@ -1309,7 +1298,7 @@ myNameSpace.init();
 							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
 						</section>
 						<section>
-							<h2>Self executing function</h2>
+							<h2>Self executing</h2>
 							<pre><code>
 (function(){
   var current = null;
@@ -1317,9 +1306,39 @@ myNameSpace.init();
   function change(){...}
   function verify(){...}
 })();							
+							</code></pre>
+							<pre class="fragment"><code>
+(function( skillet, $, undefined ) {
+    //Private Property
+    var amountOfGrease = "1 Cup";
+
+    //Public Method
+    skillet.toString = function() {
+        console.log( skillet.quantity + " " + 
+                     skillet.ingredient + " & " + 
+                     amountOfGrease + " of Grease" );
+        console.log( isHot ? "Hot" : "Cold" );
+    };    
+}( window.skillet = window.skillet || {}, jQuery ));								
 							</code></pre>	
 						</section>
+						<section>
+							<h2>namespace</h2>
+							<pre><code>
+var yourNamespace = {
 
+    foo: function() {
+    },
+
+    bar: function() {
+    }
+};
+
+...
+
+yourNamespace.foo();								
+							</code></pre>
+						</section>		
 						<section>
 							<h2>Re-think try-catch</h2>
 							<img src="images/tryCatch.jpg">
@@ -1351,6 +1370,8 @@ myNameSpace.init();
 								<h2>DOM vs innerHTML</h2>
 								<h4>Templating JS vs Mustache</h4>
 								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
+								<br/>
+								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
 							</section>	
 						<section>
 							<h2 class="upholdHeader">Know Javascript Engine</h2>							
@@ -1365,6 +1386,17 @@ myNameSpace.init();
 						</section>
 					</section>
 					<section>
+						<section>
+							<h1>Jank</h1>
+							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
+							<br/>
+							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
+							<br/>
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br/>
+						</section>
 						<section>
 							<h1 class="upholdHeader">Scroll could be scary!</h1>
 							<p class="purpleBold fragment">Scroll and hover effect at the same time</p>
