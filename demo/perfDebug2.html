@@ -1,0 +1,156 @@
+<html><head>
+	<script src="../js/jquery-1.10.2.min.js"></script>
+	<style type="text/css"></style>
+	<style>
+		html, body {
+			height: 100%;
+			width: 100%;
+			background-color: #f5f5f5;
+			font-family: Georgia, serif;
+			font-style: italic;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Header and controls */
+		#topbar {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: white;
+			padding-left: 15px;
+			padding-bottom: 15px;
+			z-index: 3;
+		}
+
+		body.transformed #topbar {
+			-webkit-transform: translateZ(0);
+		}
+
+		/* side bar controls */
+		#sidebar {
+			position: fixed;
+			top: 200px;
+			right: 50px;
+			width: 200px;
+			z-index: 2;
+			background-color: #f5f5f5;
+		}
+
+		body.transformed #sidebar {
+			-webkit-transform: translateZ(0);
+		}
+
+		#sidebar ul {
+			list-style: none;
+		}
+
+		/* Scrolling container that moves with the body */
+		#container {
+			margin-top: 150px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 800px;
+		}
+
+		/* Promote container and its children to own layer */
+		#container.transformed {
+			-webkit-transform: translateZ(0);
+		}
+		#container.transformed #subcontainer {
+			-webkit-transform: translateZ(0);
+		}
+
+		/* Images are in little containers with slow-to-paint effects */
+		div.imgcontainer {
+			background: gray;
+			width: 640px;
+			margin: 15px;
+			border: 1px solid gray;
+			border-radius: 2px;
+			
+			overflow: hidden;
+			background-image: 	linear-gradient(45deg, #eee 25%, transparent 25%, transparent),
+								linear-gradient(-45deg, #eee 25%, transparent 25%, transparent),
+								linear-gradient(45deg, transparent 75%, #eee 75%),
+								linear-gradient(-45deg, transparent 75%, #eee 75%);
+			background-size: 3px 3px;
+			-webkit-transition: all 1s linear;
+		}
+		div.imgcontainer img {
+			display: block;
+			margin: auto;
+			margin-bottom: 40px;
+		}
+		#container.resized img {
+			max-width: 640px;
+		}
+
+		/* Hover effects */
+		#container.hoverable div.imgcontainer img:hover {
+			/*-webkit-filter: brightness(180%);*/
+			opacity: .9;
+		}
+
+		#container.hoverable div.imgcontainer:hover {
+			/*-webkit-filter: brightness(180%);*/
+			box-shadow: 5px 5px 5px #888;
+		}
+
+	</style>
+	<script>
+
+		var timer = null;
+		function toggleScrollHandler() {
+			if(window.onscroll) {
+				// turn off the scroll handling
+				window.onscroll = null;
+				container.classList.add('hoverable');
+			} else {
+				// turn on the scroll handling
+				window.onscroll = function() {
+					container.classList.remove('hoverable');
+					window.clearTimeout(timer);
+					timer = window.setTimeout(function() {
+						// only set the hoverable class 200ms after the last scroll
+						document.getElementById('container').classList.add('hoverable');
+					}, 200);
+				}	
+			}
+		}
+
+	</script>
+</head>
+<body class="transformed">
+	<div id="topbar">		
+		<h2>copied from: http://jankfree.org/examples/hover.html</h2>
+	</div>
+	<div id="sidebar">
+		<ul>
+			<li>
+				<input type="checkbox" id="transformed" checked="checked" onchange="document.body.classList.toggle('transformed')">
+				<label for="transformed">position:fixed elements promoted to layers</label>
+			</li>
+			<li>
+				<input type="checkbox" id="hoverable" onchange="toggleScrollHandler()" checked="checked">
+				<label for="hoverable">Hover effects during scroll</label>
+			</li>
+	</ul></div>
+	<div id="container" class="hoverable">
+		<div id="subcontainer">
+			<div class="imgcontainer"><img src="../images/forDemo/laptop.jpeg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/begger.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/trouble.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/phone1.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/phone3.jpeg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/phone4.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/developer1.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/idiots.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/lazy5.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/garbaseOnly.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/cupholder.jpg"></div>
+			<div class="imgcontainer"><img src="../images/forDemo/basinWater.jpg"></div>
+		</div>
+	</div>
+
+<div id="GOOGLE_INPUT_CHEXT_FLAG" style="display: none;" input="" input_stat="{}"></div></body></html>
