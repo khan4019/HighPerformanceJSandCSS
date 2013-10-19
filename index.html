@@ -315,7 +315,7 @@ p,div{
 							<img class="fullScreenImage" src="images/reFlow.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader">Try to Avoid Re flow</h1>
+							<h1 class="upholdHeader">Try to Avoid Re-flow</h1>
 							
 							<p class="fragment">Use DOM DocumentFragment </p>
 							<h2 class="fragment">Clone the DOM</h2>
@@ -1319,6 +1319,52 @@ myNameSpace.init();
 })();							
 							</code></pre>	
 						</section>
+
+						<section>
+							<h2>Re-think try-catch</h2>
+							<img src="images/tryCatch.jpg">
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+							<br/>
+							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
+						</section>
+						<section>
+							<h2>Use Strict Mode</h2>
+							<pre><code>
+// Non-strict code...
+ 
+(function(){
+  "use strict";
+ 
+  // Define your library strictly...
+})();
+ 
+// Non-strict code...
+							</code></pre>
+							
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
+						</section>
+						<section>
+								<h2>DOM vs innerHTML</h2>
+								<h4>Templating JS vs Mustache</h4>
+								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
+							</section>	
+						<section>
+							<h2 class="upholdHeader">Know Javascript Engine</h2>							
+							<ul>
+								<li>Know V8</li>
+								<li>Hidden Class</li>
+								<li>Avoid Memory Leaks</li>
+								<li>Compile browser</li>
+							</ul>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
+					</section>
+					<section>
 						<section>
 							<h1 class="upholdHeader">Scroll could be scary!</h1>
 							<p class="purpleBold fragment">Scroll and hover effect at the same time</p>
@@ -1338,6 +1384,13 @@ myNameSpace.init();
 								<li class="fragment">Image resize</li>
 							</ul>
 							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15"><Jank-busters/a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
 						</section>
 						<section>
 							<h2>requestAnimationFrame (rAF)</h2>
@@ -1385,51 +1438,7 @@ window.onscroll = function(e) {
 							<br/>
 							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
 						</section>
-						<section>
-							<h2>Re-think try-catch</h2>
-							<img src="images/tryCatch.jpg">
-							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
-							<br/>
-							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
-							<br/>
-							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
-						</section>
-						<section>
-							<h2>Use Strict Mode</h2>
-							<pre><code>
-// Non-strict code...
- 
-(function(){
-  "use strict";
- 
-  // Define your library strictly...
-})();
- 
-// Non-strict code...
-							</code></pre>
-							
-							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
-						</section>
-						<section>
-								<h2>DOM vs innerHTML</h2>
-								<h4>Templating JS vs Mustache</h4>
-								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
-							</section>	
-						<section>
-							<h2 class="upholdHeader">Know Javascript Engine</h2>							
-							<ul>
-								<li>Know V8</li>
-								<li>Hidden Class</li>
-								<li>Avoid Memory Leaks</li>
-								<li>Compile browser</li>
-							</ul>
-							<br/>
-							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
-						</section>
-					</section>
-
+					</section>	
 
 					<section>
 						<section>
