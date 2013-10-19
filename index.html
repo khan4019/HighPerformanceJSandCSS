@@ -48,6 +48,14 @@
 				.lineThrough{
 					text-decoration: line-through;					
 				}
+				.redBoldText{
+					font-weight: bold;
+					color: red;
+				}
+				.purpleBold{
+					font-weight: bold;
+					color:purple;
+				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 			<script>
@@ -307,7 +315,7 @@ p,div{
 							<img class="fullScreenImage" src="images/reFlow.png">
 						</section>
 						<section>
-							<h1 class="upholdHeader">Try to Avoid Re flow</h1>
+							<h1 class="upholdHeader">Try to Avoid Re-flow</h1>
 							
 							<p class="fragment">Use DOM DocumentFragment </p>
 							<h2 class="fragment">Clone the DOM</h2>
@@ -765,7 +773,8 @@ treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon
 						</section>
 						<section>
 							<h1>Jank</h1>
-
+							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
+							<br/>
 							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
@@ -1310,12 +1319,7 @@ myNameSpace.init();
 })();							
 							</code></pre>	
 						</section>
-						<section>
-							<h1 class="noUppercase">Debounce & Throttle</h1>
-							<h2>Defer</h2>
-							<br/>
-							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
-						</section>
+
 						<section>
 							<h2>Re-think try-catch</h2>
 							<img src="images/tryCatch.jpg">
@@ -1360,7 +1364,81 @@ myNameSpace.init();
 							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
 						</section>
 					</section>
-
+					<section>
+						<section>
+							<h1 class="upholdHeader">Scroll could be scary!</h1>
+							<p class="purpleBold fragment">Scroll and hover effect at the same time</p>
+							<br/>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>
+						</section>
+						<section>
+							<h2>Do you really need to Paint</h2>
+							<ul>
+								<li class="fragment">position:fixed</li>
+								<li class="fragment">overflow:scroll</li>
+								<li class="fragment">hover effect</li>
+								<li class="fragment">touch listeners</li>
+								<li class="fragment">Image resize</li>
+							</ul>
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15"><Jank-busters/a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
+						</section>
+						<section>
+							<h2>requestAnimationFrame (rAF)</h2>
+							<p class="purpleBold">Google about it</p>
+							<h4 class="fragment">Browser dynamically adjust to keep the frame rate normal.</h4>
+							<ul>
+								<li class="fragment">Decouple events from animation</li>
+								<li class="fragment">Avoid animation that causes reflow-repaint loops </li>
+								<li class="fragment">Read the link for more</li>
+								<li class="fragment"></li>
+								<li class="fragment"></li>
+								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
+								<br/>
+								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
+							</ul>
+						</section>
+						<section>
+							<h2>Parallax</h2>
+							<h3>Read more about it</h3>
+							<pre><code>
+window.onscroll = function(e) {
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.marginTop = (window.scrollY/2) + 'px';
+ 
+}								
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+ 
+  // note: most browsers presently use prefixes: webkitTransform, mozTransform etc.
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
+ 
+}								
+							</code></pre>
+							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>	
 
 					<section>
 						<section>
@@ -1583,6 +1661,8 @@ console.log(start - end +'ms');
 						<section>
 							<h1 class="upholdHeader">Memory Profiling</h1>
 							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Long paint times profiling</a>
 							<br/>
 							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
 							<br/>
