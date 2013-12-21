@@ -1487,11 +1487,10 @@ $( "ul.nav" ).each(function( index ) {
 						</section>
 						<section>
 							<pre><code>
-&lt;ul id=&quot;list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;http://domain1.com&quot;&gt;Item #1&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/local/path/1&quot;&gt;Item #2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/local/path/2&quot;&gt;Item #3&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;http://domain4.com&quot;&gt;Item #4&lt;/a&gt;&lt;/li&gt;
+&lt;ul id=&quot;resources&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.mozilla.org&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5doctor.com&quot;&gt;HTML5 Doctor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5rocks.com&quot;&gt;HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 							<pre class="fragment"><code>
 $( "#list a" ).on( "click", function( event ) {
@@ -1505,6 +1504,8 @@ $( "#list" ).on( "click", "a", function( event ) {
     console.log( $( this ).text() );
 });
 </code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/08/17/javascript-events-responding-user/">JS Events</a>	
+							<br>
 							<a href="http://learn.jquery.com/events/event-delegation/">JQuery Event Delegation</a>
 						</section>
 						<section>
