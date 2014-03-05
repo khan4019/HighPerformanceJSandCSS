@@ -1,0 +1,1896 @@
+	<!doctype html>
+	<html lang="en">
+
+		<head>
+			<meta charset="utf-8">
+
+			<title>High Perf JS CSS</title>
+
+			<meta name="description" content="An intermediate to advanced tips and tricks for High Performance JavaScript and CSS">
+			<meta name="author" content="Md Khan">
+
+			<meta name="apple-mobile-web-app-capable" content="yes" />
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+			<link rel="stylesheet" href="css/reveal.css">
+			<link rel="stylesheet" href="css/theme/custom.css" id="theme">
+			<!-- <link rel="stylesheet" type="text/css" href="css/print/pdf.css"> -->
+
+			<!-- For syntax highlighting -->
+			<link rel="stylesheet" href="lib/css/zenburn.css">
+			<style type="text/css">
+				.noUppercase
+				{
+					text-transform: none !important;
+				}
+				.fullScreenImage
+				{
+					width: 100%;
+					height: 90%;
+				}
+				.reveal h1.upholdHeader{
+				  margin-top: -50px;
+				  margin-left: -15%;
+				  width: 130%;
+				}
+				.mediumFont{
+					font-size: 2em;
+				}
+
+				.reveal code.largeCode {
+					max-height: 600px;
+				}
+
+				.greenBold{
+					color: green;
+					font-weight: bold !important;
+				}
+				.lineThrough{
+					text-decoration: line-through;					
+				}
+				.redBoldText{
+					font-weight: bold;
+					color: red;
+				}
+				.purpleBold{
+					font-weight: bold;
+					color:purple;
+				}
+			</style>
+			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+			<script>
+				document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			</script>
+
+			<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv.js"></script>
+			<![endif]-->
+		</head>
+
+		<body>
+
+			<div class="reveal">
+
+				<!-- Any section element inside of this container is displayed as a slide -->
+				<div class="slides">
+<!-- start of intro -->
+					<section>
+						<h1>High Performance JS & CSS</h1>					
+						<br/>
+						<h2><a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a> </h2>
+						<br/>
+						<p>
+							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+						</p>
+					</section>
+					<section>
+						<h2>To read:</h2>
+						<ol>
+							<li><a href="http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/">CSS perf revisited</a></li>
+							<li><a href="http://www.mnot.net/blog/2014/01/30/http2_expectations">Expectation from HTTP2</a></li>
+							<li><a href="http://bradfrostweb.com/blog/post/responsive-strategy/">Responsive Strategy</a></li>
+							<li><a href="https://speakerdeck.com/lara/design-for-performance">Designing for performance</a></li>
+							<li><a href="https://github.com/mdo/css-perf">css perf</a></li>
+						</ol>
+					</section>
+					<section>
+						<img src="images/goingWork.jpg" alt="">
+						<a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a>	
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Quick Performance!</h1>
+							<img  class="fullScreenImage"  src="images/success.jpg">
+						</section>						
+						<section>
+							<img src="images/redBull.jpg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img src="images/redBullWings.jpeg" alt="" class="fullScreenImage">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/developerSecret.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/coffeePot.jpg">
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/pizzaSlice.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/badBoss.jpg">
+						</section>
+						<section><img src="images/manageDeveloper.jpg" alt="" class="fullScreenImage"></section>
+					</section>
+					<section>
+						<section>
+							<h1 class ="noUppercase">How do we develop a app?</h1>
+						</section>	
+						<section>
+							<img class="fullScreenImage" src="images/bike.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/fancyBike.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/emptyBike.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/bikeHack.jpeg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/bikeCow.jpg">
+						</section>										
+						<section>
+							<img class="fullScreenImage" src="images/bikeBrick.jpg">
+						</section>						
+						<section>
+							<img class="fullScreenImage" src="images/bikeGreen.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/bikeDesi.jpg">
+						</section>															
+						<section>
+							<img class="fullScreenImage" src="images/bikeFullLoad.jpg">
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/fancyBike.jpg">
+						</section>
+					</section>
+					<!-- End of Intro -->
+					<section>
+						<section>
+							<h1>Performance matters ! ! ! !</h1>
+							<h4>Every milisecond counts</h4>
+						</section>
+						<section>
+							<img src="images/googleClassic.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/snakeDodge.jpg" alt="">
+						</section>
+						<section>
+							<h1 class="noUppercase upholdHeader" > Optimization :- </h1>
+							<ul class="mediumFont">
+								<li class="fragment" >Subjective</li>
+								<li class="fragment" >Could be Expensive</li>
+								<li class="fragment" >Not Always Valid</li>
+								<li class="fragment" >Don't Guess, Measure it</li>
+							</ul>
+						</section>
+						<section>
+							<h1 class="noUppercase" > Expectations !!!</h1>
+							<ul>
+								<li class="fragment" >Browser</li>
+								<li class="fragment" >CSS</li>
+								<li class="fragment" >JavaScript</li>								
+								<li class="fragment" >Debug</li>
+							</ul>
+						</section>
+						
+					</section>
+
+					<!-- Start of How Browser Works -->
+					<section>					
+						<section>
+							<h2 class="upholdHeader">How Browser Works??</h2>
+							<img class="fullScreenImage" src="images/browser.jpg">
+						</section>
+						<section>
+							<h1 >Browser</h1>
+							<ul>
+								<li>Versions</li>
+								<li>Bugs</li>
+								<li>Changing</li>
+							</ul>
+						</section>
+						
+						<!-- <section>
+							<img class="fullScreenImage" src="http://1.media.collegehumor.cvcdn.com/78/58/4fe20a0003ba1c49375468f9ac47950e-which-one-of-these-is-not-a-web-browser.jpg">
+						</section> -->
+
+
+						<section>
+							<h1 class="upholdHeader">Why learn about Browser?</h1>
+							<br/>
+							<ul>
+								<li class="fragment" >Play Ground</li>
+								<li class="fragment" >Geek / Freak </li>
+								<li class="fragment">Don't forget Devices</li>
+							</ul>
+						</section> 						
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequest.png" alt="">
+							<a href="http://www.w3.org/TR/navigation-timing/">W3.org: navigation-timing</a>
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
+						</section>
+						<section>
+						<h2>Your Html</h2>
+						<pre><code contenteditable>
+1.  &lt;html&gt;
+2.      &lt;body&gt;
+3.         &lt;p&gt;
+4.            Hello World
+5.        &lt;/p&gt;
+6.        &lt;div&gt; 
+7.           &lt;img src=&quot;example.png&quot;/&gt;
+8.        &lt;/div&gt;
+9.     &lt;/body&gt;
+10. &lt;/html&gt;
+
+						</code></pre>
+						<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browser Works</a>						
+					</section>
+
+					<section>
+						<img  class="fullScreenImage"  src="images/domTreeWithHTML.png">
+					</section>
+					<section>
+							<h1 class="upholdHeader">Validate Html</h1>
+							<br/>
+							<p>Don’t Just Wrap a DIV Around It</p>
+							<br/>
+							<h3>Make HTML Parsing Easier</h3>
+							<br/>
+							<br/>
+							<a href="http://net.tutsplus.com/tutorials/html-css-techniques/30-css-best-practices-for-beginners/">30 CSS Best Practices</a>
+						</section>
+					<section>
+							<h2>Style</h2>						
+							<pre><code contenteditable>
+p,div{
+  margin-top:3px;
+}
+
+.error {
+  color:red;
+}
+						</code></pre>
+						
+						</section>
+						<section>
+							<img  class="fullScreenImage"  src="images/parsingCSS.png">
+						</section>
+						
+						<section>
+							<h1 class="noUppercase">Render Tree</h1>
+							<img src="images/renderTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">So far</h1>
+							<img class="fullScreenImage" src="images/uptoRenderTree.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">Layout</h1>
+							<img class="fullScreenImage" src="images/layout.png">
+							<a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(Cascading_Style_Sheets)">CSS Layout Engines</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Paint</h1>
+							<img src="images/painting.png">
+						</section>						
+					</section>
+					<section>
+						<section>
+							<h1>Need to Change</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader" >Avoid Change</h1>
+							<ul>
+								<li class="fragment">Minimum change</li>
+								<li class="fragment">Don't change Layout</li>
+								<li class="fragment">Change Background Color</li>
+								<li class="fragment">Change Text Color</li>
+								<li class="fragment">Visibility: hidden</li>
+							</ul>
+						</section>
+
+						<section>
+							<h1 class="upholdHeader">Re paint</h1>
+							<img class="fullScreenImage" src="images/repaint.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader" >More Changes =&gt; More Work</h1>
+							<ul>
+								<li class="fragment">Change Layout</li>
+								<li class="fragment">Change Width / Height</li>
+								<li class="fragment">Change Font</li>
+								<li class="fragment">Move DOM Node</li>
+								<li class="fragment">Resize Window</li>
+								<li class="fragment">Display: none</li>								
+							</ul>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Re Flow</h1>
+							<img class="fullScreenImage" src="images/reFlow.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">Try to Avoid</h1>
+							<h1 style="color:purple;"> Re-flow</h1>
+							
+							<p class="fragment">Use DOM DocumentFragment </p>
+							<h2 class="fragment">Clone the DOM</h2>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">Styles affect paint and layout</a>
+							<br/>
+							<a href="http://ejohn.org/blog/dom-documentfragments/">John Resig: DOM DocumentFragment</a>
+							<br/>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">MDN: DocumentFragment</a>
+							<br/>
+							<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Re flow Layout</a>
+							<br/>
+							<a href="https://github.com/stevekwan/best-practices/blob/master/javascript/best-practices.md">JS best practices</a>
+							<br/>
+							<a href="http://jonraasch.com/blog/10-javascript-performance-boosting-tips-from-nicholas-zakas">Nicholas Zakas: 10 JS Performance Boosting</a>	
+						</section>
+											
+					</section>
+<!-- End of Browser -->
+<!-- start of CSS -->
+
+					<section>
+					<section>
+						<h1 class="upholdHeader">Lets Talk about CSS</h1>
+					</section>
+						<section>
+							<h1 class="upholdHeader">CSS Selectors</h1>
+							<img style="width:800px; height:700px;" src="images/css.jpg">	
+						</section>
+						<section>
+							<h1 class="upholdHeader">ID</h1>
+							<pre><code contenteditable>
+1. &lt;style&gt;
+2.  #myFirstTODO
+3.  {
+4.     color:red;
+5.  }
+6.  &lt;/style&gt;
+7.
+8.  &lt;div&gt;
+9.      &lt;p id=&quot;myFirstTODO&quot;&gt; <span style="color:red;">have to shower </span>&lt;/p&gt;
+10.     &lt;p&gt; have to shave&lt;/p&gt;
+11.     &lt;p&gt; have to cut hair&lt;/p&gt;
+12.     &lt;p&gt; buy perfume&lt;/p&gt;
+13.     &lt;p&gt; at least buy t shirt&lt;/p&gt;
+14. &lt;/div&gt;
+							</code></pre> 
+						</section>
+
+						<section>
+							<h1 class="upholdHeader">Class</h1>
+							<pre><code contenteditable>
+1. &lt;style&gt;
+2.  .greenBold
+3.  {
+4.     color: green;
+5.     font-weight:bold;
+6.  }
+7.  &lt;/style&gt;
+8.
+9.  &lt;div&gt;
+10.     &lt;p&gt; have to shower&lt;/p&gt;
+11.     &lt;p class=&quot;greenBold&quot;&gt; <span class="greenBold">have to shave</span>&lt;/p&gt;
+12.     &lt;p class=&quot;greenBold&quot;&gt; <span class="greenBold">have to cut hair</span>&lt;/p&gt;
+13.     &lt;p&gt; buy perfume&lt;/p&gt;
+14.     &lt;p&gt; at least buy t shirt&lt;/p&gt;
+15. &lt;/div&gt;
+							</code></pre> 
+						</section>
+						<section>
+							<h2 class="upholdHeader">Immediate Children</h2>
+							<pre><code class="largeCode" contenteditable>
+1. &lt;style&gt;
+2.  li &gt; ul
+3.  {
+4.     color: green;
+5.     font-weight: bold;
+6.  }
+7.  &lt;/style&gt;
+8.
+9.  &lt;div&gt;  
+10.     &lt;ul&gt;  
+11.         &lt;li&gt; List Item  
+12.            &lt;ul&gt;  
+13.                &lt;li&gt;<span class="greenBold"> Child</span> &lt;/li&gt;  
+14.            &lt;/ul&gt;  
+15.         &lt;/li&gt;  
+16.         &lt;li&gt; List Item &lt;/li&gt;  
+17.         &lt;li&gt; List Item &lt;/li&gt;  
+18.         &lt;li&gt; List Item &lt;/li&gt;  
+19.    &lt;/ul&gt;  
+20. &lt;/div&gt; 						</code></pre> 
+						</section>
+						<section>
+							<h1 class="upholdHeader">Descendent</h1>
+							<pre><code contenteditable>
+#myTODO p
+  {
+     color: green;
+     font-weight: bold;
+  }
+							</code></pre> 
+						</section>
+						<section>
+							<h1 class="upholdHeader">Fancy Selectors</h1>
+								<br/>
+								<br/>
+								<h3 class = "fragment">div + p {  /*Adjacent*/ }</h3>			
+								
+								<h3 class = "fragment">div ~ p {  /*Sibling*/ }</h3>			
+								
+								<h4 class = "fragment">input[type="checkbox"] { /*Attribute*/}</h4>			
+								
+								<h3 class = "fragment">p:first-child { /*pseudo*/}</h3>			
+								<br/>
+								<br/>
+							<a href="http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/">Advanced CSS Selectors</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader" style="color:green;">You can</h1>
+							<h1 class="upholdHeader fragment" style="color:red; margin-top: 0px">Doesn't mean you should</h1>
+							<br/>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=ldx4ZFxMEeo"> Better Quality CSS</a>
+							<br/>
+							<a href="http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/">Best Practices are killing us</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/1230636/css-optimization-element-id-vs-class">CSS Optimization</a>
+							
+						</section>
+					</section>		
+					<section>
+						<section>
+							<h1 class="upholdHeader">Render Speed</h1>
+							<img src="images/ambulence.jpg">
+						</section>
+						<section>
+							<br/>
+							<h3>ID - #myID</h3>			
+							<br/>
+							<h3 class = "fragment">Class – .myClass</h3>			
+							<br/>
+							<h3 class = "fragment">Tag – div</h3>			
+							<br/>
+							<h3 class = "fragment">Sibling – div + p, div ~ p</h3>			
+							<br/>
+							<h3 class = "fragment">Child – div > p</h3>			
+							<br/>
+						</section>
+						<section>
+							<br/>
+							<h3>Descendant – div p</h3>			
+							<br/>
+							<h3 class = "fragment">Universal – div *</h3>			
+							<br/>
+							<h4 class = "fragment">Attribute – input[type="checkbox"]</h4>			
+							<br/>
+							<h3 class = "fragment">Pseudo – p:first-child</h3>			
+							<br/>
+							<br/>
+							<a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS Selector</a>	
+							<br/>
+							<a href="http://www.youtube.com/watch?v=a2_6bGNZ7bA">Faster HTML and CSS</a>
+						</section>
+
+
+						<section>
+							<h3 class="upholdHeader">This doesn't mean everything should be ID</h3>
+							<br/>
+							<h3 class = "fragment">ID and Class: Almost Similar</h3>
+							<br/>
+							<h3 class = "fragment">DRY, Readable & Maintainable</h3>
+							<br/>
+							<h1 class = "fragment" style="color:purple;">Fast</h1>
+							<br/>
+							<a href="http://css-tricks.com/the-difference-between-id-and-class/"> Difference between ID and Class</a>
+						</section>
+							
+					</section>	
+					<section>
+						<section>
+							<h1 class="upholdHeader">CSS Try to Avoid</h1>
+							<br/>
+							<br/>
+							<a href="https://developers.google.com/speed/docs/best-practices/rendering">Rendering Best practices</a>
+							<br/>
+								<a href="https://developers.google.com/speed/docs/best-practices/rendering">Google: Optimize Browser Rendering</a>	
+						</section>
+						
+						<section>
+							<h3 class="lineThrough">Universal Key Selector</h3>
+							<pre><code contenteditable>
+body * {
+	color:#365277;
+}
+
+.hide-scrollbars * {
+	font-size: 16px;
+}								
+							</code></pre> 
+						</section>
+						<section>
+							<h3 class="lineThrough">When you can't read easily. Same to Browser</h3>
+							<pre><code contenteditable>
+#myDiv ul li button 
+{ 
+   width:200px;
+}
+
+#myDiv ul li:nth-child(2) li:nth-child(7) > a 
+{
+   color:red;
+}
+								</code></pre> 
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Use class</h3>
+							<pre><code contenteditable>
+.btnMedium 
+{
+   width:200px;
+}
+
+.myClass 
+{
+   color:red;
+}
+								</code></pre> 
+						</section>
+
+						<section>						
+							<h3 class = "noUppercase">Don't Repeat</h3>
+							<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;          
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+								</code></pre> 
+						</section>
+						<section>						
+							<h3 class = "noUppercase">Still Repeating</h3>
+							<pre><code contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg') center center no-repeat;
+    padding-left:20px;          
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg') center center no-repeat;    
+    padding-left:20px;
+}
+								</code></pre> 
+						</section>
+						<section>
+							<h3 class="noUppercase">Combine Common Styles</h3>
+							<pre><code class="largeCode" contenteditable>
+.upTrend
+{
+    background-image:url('upGreen.jpg');            
+}
+
+.downTrend
+{
+    background-image:url('downRed.jpg');            
+}
+
+.upTrend, .downTrend 
+{
+    background-repeat:no-repeat;
+    background-position: center center;
+    padding-left:20px;
+}
+								</code></pre> 
+								<a href="http://www.vanseodesign.com/css/dry-principles/">DRYer CSS</a>
+						</section>
+						<section>
+							<h3 class="lineThrough">Be as specific as possible.</h3>
+							<pre><code contenteditable>
+ul li a 
+{
+  /* My awesome anchor */
+}
+
+* html #atticPromo ul li a 
+{
+  /* My awesome rules */
+}
+								</code></pre> 
+						</section>
+						
+						<section>
+							<h3 class="lineThrough">Redundant selectors</h3>
+							<pre><code contenteditable>
+ul #top_blue_nav 
+{
+  ...
+}
+
+form #UserLogin 
+{
+  ...
+}
+								</code></pre> 
+						</section>
+						<!--
+						<section>
+							<h1> CSS expressions</h1>	
+						</section>
+						<section>
+							<pre><code contenteditable>
+						//get from google best practices link before
+								</code></pre> 
+						</section>
+						-->
+
+						<section>
+							<h3 class="lineThrough">Check again your child selectors</h3>
+							<pre><code contenteditable>
+
+//don't
+treeitem[IsImapServer="true"] > treerow > .tree-folderpane-icon 
+{
+   ... 
+}
+
+
+//do
+.tree-folderpane-icon[IsImapServer="true"] 
+{
+   ...
+}
+
+								</code></pre> 
+								<br/>
+								<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS?redirectlocale=en-US&redirectslug=CSS%2FWriting_Efficient_CSS">Mozilla Rendering Guides</a>
+								
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">How CSS Selectors are Matched</h1>
+							
+						</section>
+						<section>							
+							<pre><code class="largeCode" contenteditable>
+1. &lt;html&gt;
+2.  &lt;head&gt;
+3.    //head omitted due to lack of brain
+4.  &lt;/head&gt;
+5.  &lt;body&gt;
+6.    &lt;header&gt;
+7.      &lt;h1&gt;My Awesome title&lt;/h1&gt;
+8.    &lt;/header&gt;
+9.    &lt;nav&gt;
+10.      &lt;ol&gt;
+11.        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+12.        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+13.      &lt;/ol&gt;
+14.    &lt;/nav&gt;
+15.    &lt;section&gt;
+16.      &lt;div&gt;
+17.        &lt;ul&gt;
+18.          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+19.          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+20.        &lt;/ul&gt;
+21.      &lt;/div&gt;
+22.    &lt;/section&gt;
+23.  &lt;/body&gt;
+24.&lt;/html&gt;
+								</code></pre> 
+						</section>
+						<section>
+							<img class="fullScreenImage" src="images/roughDOMTreeWithHTML2.png">
+						</section>
+						<section>
+							<h1 class="upholdHeader">li { color: red; }</h1>
+							<ul>								
+								<!-- <li class="fragment">Root level</li> -->
+								<li class="fragment">Run only once</li>								
+							</ul>
+						</section>
+						<section>
+							<h1 class="upholdHeader">nav a {color:green;}</h1>					
+						</section>
+						<section>
+							<h2 class="upholdHeader">nav a {color:green;}</h2>
+							<img class="fullScreenImage" src="images/rightToLeft1.png">
+						</section>
+						<section>
+							<h2 class="upholdHeader">nav a {color:green;}</h2>
+							<img class="fullScreenImage" src="images/rightToLeft2.png">
+						</section>
+						<section>
+							<h2 class="upholdHeader">nav a {color:green;}</h2>
+							<img class="fullScreenImage" src="images/rightToLeft3.png">
+						</section>
+						<section>							
+							<img class="fullScreenImage" src="images/htmlTree.png">
+						</section>
+						<section>
+							<h2 class="upholdHeader">Browser Evaluates Selectors?</h2>
+							<h1 style="color:red;" class="fragment">Right to Left</h1>
+							<h1 style="color:gray;">&lt;=</h1>
+								
+							<br/><br/><br/><br/>
+							<a href="http://islovely.co/blog/understanding-css-hierarchy-matching/">CSS hierarchy matching</a>
+							<br/>
+							<a href="http://islovely.co/blog/writing-high-performance-css/">High Performance CSS</a>
+							<br/>
+							<a href="http://www.eddiewelker.com/2011/04/06/high-performance-css-code-design/">CSS Code Design</a>
+						</section>				
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">CSS Specificity</h1>
+							<br/>
+							<br/>
+							<pre><code contenteditable>
+
+/* Take Advantage of CSS specificity  */
+/* class, id, inline, !important */
+
+							</code></pre>
+							<br/>
+							<a href="http://www.standardista.com/css3/css-specificity/">Estelle Weyl: CSS SpeciFISHity</a>
+							<br/>
+							<a href="http://css-tricks.com/specifics-on-css-specificity/">CSS-Tricks: CSS Specificity</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=SLC83iesr60">Understanding CSS</a>
+							<br/>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">MDN: Specificity</a>
+							<br/>
+							<a href="http://specificity.keegan.st/">Specificity calculator</a>
+							<br/>
+							<a href="http://diythemes.com/thesis/css-specificity-thesis/">Power of Specificity</a>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">CSS Specificity: Things you should know</a>
+						</section>
+						<section>
+							<h1>Unused CSS</h1>
+								<a href="http://unused-css.com/">Detect Unused Css</a><br/>
+						</section>
+						<section>
+							<h2>font performance</h2>
+							<a href="http://www.igvita.com/2014/01/31/optimizing-web-font-rendering-performance/">Optimize web font rendering performance</a>
+							<br>
+							<a href="http://www.igvita.com/2012/09/12/web-fonts-performance-making-pretty-fast/#optimizing">making web font pretty fast</a>
+						</section>
+					</section>
+<!-- End of CSS	 -->
+				
+<!-- Start of JS Best Practice -->
+					<section>
+						<section>
+							<h1>JavaScript</h1>
+						</section>
+						<section>
+							<img src="images/longRun3.jpg" alt="">
+							<img class="fragment" src="images/longRun.png" alt="">
+
+						</section>
+
+						<section>
+							<h1 class="upholdHeader">JS try to Avoid</h1>
+						</section>
+						<section>
+							<h2 class="lineThrough">Access Same Variable</h2>						
+							<pre><code contenteditable>
+var blah = document.getElementById('myID');
+var blah2 = document.getElementById('myID2');
+var blah3 = document.getElementById('myID3');
+
+
+var blah = document.getElementById('myID'),
+    blah2 = document.getElementById('myID2'),
+    blah3 = document.getElementById('myID3');
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Localize variable</h2>						
+							<pre><code contenteditable>
+var doc = document,
+    blah = doc.getElementById('myID'),
+    blah2 = doc.getElementById('myID2'),
+    blah3 = doc.getElementById('myID3');
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2 class="lineThrough">My For Loop</h2>						
+							<pre><code contenteditable>
+for(var i = 0; i < someArray.length; i++) {  
+   
+   var container = document.getElementById('container');  
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Cache outside of loop</h2>						
+							<pre><code contenteditable>
+
+var container = document.getElementById('container');  
+
+for(var i = 0; i < someArray.length; i++) {     
+   
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Little More!!!</h2>						
+							<pre><code contenteditable>
+var container = document.getElementById('container');  
+
+for(var i = 0, len = someArray.length; i < len; i++) {     
+   
+   container.innerHtml += 'my number: ' + i;  
+   console.log(i);  
+} 
+							</code></pre>		
+						</section>
+						<section>
+							<h2>Even Better</h2>
+							<pre><code>
+var i,
+  length = 100;
+
+for ( i = 0; i < length; i++ ) {
+  // statements
+}
+
+// Or...
+var i = 0,
+  length = 100;
+
+for ( ; i < length; i++ ) {
+  // statements
+}
+							</code></pre>
+							<pre class="fragment"><code>
+for (var i = 0, item; item = someArray[i++];) {
+    // Do something with item
+}
+							</code></pre>
+							<a href="https://github.com/rwaldron/idiomatic.js#table-of-contents">Idiomatic JS</a>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Use === than ==</h2>
+
+							<pre><code contenteditable>
+0 == ''; // true
+0 === false; //false
+							</code></pre>
+							<pre class="fragment"><code contenteditable>
+if (( x === null) || (x === undefined)){ ... }
+
+if(x == null) { ... }
+							</code></pre>
+							<p class="fragment"> When you don't actually know whether they are same type</p>
+							<pre class="fragment"><code contenteditable>
+typeof thing == 'function'; //always be string
+myArray.length == 0;  //will always be number
+mySting.indexOf('x') == 0;
+							</code></pre>
+							
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">bReaK aLL thE RuleZ</a>		
+						</section>
+						<section>
+							<h2>Initialize if Undefined</h2>						
+							<pre><code contenteditable>
+if ( !MyNamespace ) {
+  var MyNamespace = { };
+}
+
+//or
+var myNamespace = myNamespace || {};
+
+//or http://jsperf.com/conditional-assignment
+// myNamespace || ( myNamespace = {} );
+
+
+//or
+if ( typeof MyNamespace == ’undefined’ ) {
+  var MyNamespace = { };
+}
+							</code></pre>		
+							<a href="http://developer.nokia.com/Community/Wiki/JavaScript_Performance_Best_Practices">Nokia: JS Best Practice</a>
+						</section>
+					</section>
+
+
+					<section>
+						<section>
+							<h1 class="upholdHeader">JavaScript: String</h1>
+						</section>
+						<section>
+							<img src="images/concat.jpg" alt="">
+						</section>
+						<section>
+							<h2 class="lineThrough">String Concatenation</h2>						
+							<pre><code contenteditable>
+var tinyMessage = 'Trust me, i started one line' + 
+		  'Designer told me he wants little more' + 
+		  'I added little more' +
+		  'Manager said, this is not enough' +
+		  "He didn't said what to add" +
+		  'Just said add' +
+		  "I didn't know what to add" +
+		  'So i added a slice of pizza' +
+		  'Client said this is stupid' +
+		  'Manager said, client is right';
+							</code></pre>
+							<a href="https://developers.google.com/speed/articles/optimizing-javascript"> Optimize JavaScript </a>
+						</section>
+						<section>
+							<h2>[ ].join(' ')</h2>
+							<pre><code contenteditable>
+var tinyMessage = ['Trust me, i started one line', 
+		   'Designer told me he wants little more', 
+		   'I added little more',
+		   'Manager said, this is not enough',
+		   "He didn't said what to add",
+		   'Just said add',
+		   "I didn't know what to add",
+		   'So i added a slice of pizza',
+		   'Client said this is stupid',
+		   'Manager said, client is right'].join(' ');
+							</code></pre>
+							<a href="http://jsperf.com/array-join-vs-string-connect">array-join-vs-string-connect</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/7299010/why-is-string-concatenation-faster-than-aray-join">Why is string concatenation faster than array join</a> 
+							<br/>
+							<a href="http://stackoverflow.com/questions/9538678/fastest-way-to-build-this-string">fastest-way-to-build-this-string</a>						
+						</section>
+						<!-- <section>
+							<h2>Insted</h2>
+							<pre><code contenteditable>
+var fibonacciStr = 'First 20 Fibonacci Numbers';
+	
+for (var i = 0; i < 20; i++) {
+	fibonacciStr += i + ' = ' + fibonacci(i) + ' ';
+}
+							</code></pre>
+						</section> -->
+						<section>
+							<h2>Your Own String Builder</h2>
+							<pre><code contenteditable>
+var strBuilder = ['First 20 fibonacci numbers:'];
+
+for (var i = 0; i < 20; i++) {
+  strBuilder.push( i, '=', fibonacci(i));
+}
+
+var fibonacciStr = strBuilder.join(' ');
+							</code></pre>
+						</section>
+<!-- commented out prototype and set time out stuff -->
+<!--
+						 <section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	baz.Bar = function() {
+	  // constructor body
+	  this.foo = function() {
+	  // method body
+	  };
+	}
+							</code></pre>
+						</section>
+						<section>
+							<h2>Do</h2>
+							<pre><code contenteditable>
+	baz.Bar = function() {
+	  // constructor body
+	};
+
+	baz.Bar.prototype.foo = function() {
+	  // method body
+	};
+							</code></pre>
+						</section>
+						<section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	foo.Bar = function() {
+	  this.prop1_ = 4;
+	  this.prop2_ = true;
+	  this.prop3_ = [];
+	  this.prop4_ = 'blah';
+	};
+							</code></pre>
+						</section>
+						<section>
+							<h2>Do</h2>
+							<pre><code contenteditable>
+	foo.Bar = function() {
+	  this.prop3_ = [];
+	};
+
+	foo.Bar.prototype.prop1_ = 4;
+
+	foo.Bar.prototype.prop2_ = true;
+
+	foo.Bar.prototype.prop4_ = 'blah';
+							</code></pre>
+						</section>
+						<section>
+							<h2>Don't</h2>
+							<pre><code contenteditable>
+	function setupAlertTimeout() {
+	  var msg = 'Message to alert';
+	  window.setTimeout(function() { alert(msg); }, 100);
+	}
+
+	is slower than:
+	function setupAlertTimeout() {
+	  window.setTimeout(function() {
+	    var msg = 'Message to alert';
+	    alert(msg);
+	  }, 100);
+	}
+
+	which is slower than:
+	function alertMsg() {
+	  var msg = 'Message to alert';
+	  alert(msg);
+	}
+
+	function setupAlertTimeout() {
+	  window.setTimeout(alertMsg, 100);
+	}
+							</code></pre>
+						</section>
+						<section>
+							<h2>From Google</h2>
+							<pre><code contenteditable>
+								
+							</code></pre>
+						</section> 
+-->
+<!-- End of commented out prototype and set time out -->						
+
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Object Vs Array</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Array </h1>
+							<h3 class="fragment">Same Type </h3>			
+							<h3 class="fragment">Use Full Array</h3>			
+							<h3 class="fragment">Avoid Pre-allocate</h3>
+							<h3 class="fragment">Grow as you Go</h3>			
+							
+							<br/>
+							<a href="http://jsperf.com/type-inference-performance/2">Type Inference Performance</a>	<br/>
+							<a href ="http://jsperf.com/sparse-arrays-vs-full-arrays">Sparse vs Full Arrays</a><br/>
+							<a href="http://jsperf.com/pre-allocated-arrays">Pre-allocated Arrays</a>
+
+						</section>						
+						<section>
+							<h2 class="lineThrough"></h2>						
+							<pre><code contenteditable>
+// Don't do this:
+a = []; // executor knows nothing
+for(var i = 1; i <= 4; i++) {
+	 a.push(i);
+}
+
+// just do it:
+var a = [1, 2, 3, 4];
+							</code></pre>		
+						</section>
+						<section>
+							<h2 class="lineThrough">Delete is not delete</h2>
+							<pre><code contenteditable>
+var myArray = [1, 2, 3, 4, 5, 6]; //myArray.length = 6
+
+delete myArray[2]; 
+
+myArray; //[1, 2, undefined × 1, 4, 5,6]
+console.log(myArray.length); // 6
+console.log(myArray[2]); // undefined 
+
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="lineThrough">Array.splice </h2>						
+							<pre><code contenteditable>
+myArray.splice(2,1);
+							</code></pre>		
+						</section>
+						<section>
+							<h1 class="upholdHeader">Objects </h1>
+							<br/>
+							<h3 class="fragment">Varying types properties </h3>			
+							<br/>
+							<h3 class="fragment">Integer-indexed Objects is always faster</h3>			
+							<br/>
+							<h3 class="fragment">Use Object.Create()</h3>			
+							<br/>		
+							<a href="http://jsperf.com/object-create-vs-constructor-vs-object-literal/7">Object.create() vs. constructor vs. object literal</a>
+						</section>
+						<section>
+							<h2 class="lineThrough">Delete is not delete</h2>						
+							<pre><code contenteditable>
+var o = { x: 1 }; 
+delete o.x; // true 
+o.x; // undefined
+							</code></pre>		
+							<br/>
+							
+						</section>
+
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Let GC Breathe</h1>
+							<img src="images/garbage.jpg">
+							
+						</section>
+						<section>
+							<h2 class="lineThrough">Holding references</h2>						
+							<pre><code contenteditable>
+function getLargeThing (x) {
+  var a = function () {
+    var largeStr = new Array(1000000).join('x');
+	return function () {
+		return largeStr;
+	};
+}();
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Fast Memory Efficient JavaScript</a>
+							<br/>
+							<a href="http://jsperf.com/closure-vs-shared-method">JSPerf: Closure vs Shared method</a>		
+						</section>
+						<section>
+							<h2 class="lineThrough">Trust Arguments</h2>						
+							<pre><code contenteditable>
+if (callback && typeof callback === "function"){
+	/* rest of your logic */
+}else{
+	/* not a valid function */
+}
+
+							</code></pre>
+							<a href="http://coding.smashingmagazine.com/2011/10/27/lessons-from-a-review-of-javascript-code/">JavaScript Code Review</a>		
+						</section>
+					</section>
+					<section>
+<!-- 						<section>
+							<h1 class="upholdHeader">JavaScript: The Good Parts</h1>
+						</section>
+						<section>
+							<h2>From Good parts: Don't</h2>
+							<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+  var i;
+  for (i = 0; i < nodes.length; i += 1) {
+       nodes[i].onclick = function (e) {
+	  alert(i);
+      }
+  }
+};
+							</code></pre>
+						</section>
+						<section>
+							<h2>From Good parts:: DO</h2>
+							<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = function (i) {
+			return function (e) {
+				alert(i);
+			};
+		}(i);
+	}
+};
+							</code></pre>
+						</section>
+						<section>
+							<h2>From Good parts:: DO</h2>
+							<pre><code contenteditable>
+var add_the_handlers = function (nodes) {
+	var helper = function(i){
+	  return function(e){
+           alert(i);
+	  };
+	};
+	
+	var i;
+	for (i = 0; i < nodes.length; i += 1) {
+		nodes[i].onclick = helper(i);
+	}
+};
+							</code></pre>
+						</section>
+
+ -->						<section>
+							<h1>Momoization</h1>
+						</section>
+						<section>
+							<h2>Memoization</h2>
+							<pre><code class="largeCode" contenteditable>
+var fibonacci = function (n) {
+   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
+for (var i = 0; i <= 10; i += 1) {
+   console.log( i + ': ' + fibonacci(i));
+}
+
+// 0: 0
+// 1: 1
+// 2: 1
+// 3: 2
+// 4: 3
+// 5: 5
+// 6: 8
+// 7: 13
+// 8: 21
+// 9: 34
+// 10: 55
+							</code></pre>
+						</section>
+						<section>
+							<h2>JavaScript: Good Parts</h2>
+							<pre><code contenteditable>
+var fibonacci = (function () {
+  var memo = [0, 1];
+  var fib = function (n) {
+     var result = memo[n];
+     if (typeof result !== 'number') {
+         result = fib(n - 1) + fib(n - 2);
+         memo[n] = result;
+     }
+     return result;
+  };
+  return fib;
+})();
+							</code></pre>
+						</section>
+						<section>
+							<h2>General Memoization</h2>
+							<pre><code contenteditable>
+Function.prototype.memoize = function(){
+    var self = this, cache = {};
+    return function( arg ){
+      if(arg in cache) {
+        console.log('Cache hit for '+arg);
+        return cache[arg];
+      } else {
+        console.log('Cache miss for '+arg);
+        return cache[arg] = self( arg );
+      }
+    }
+  }
+							</code></pre>
+						<a href="http://addyosmani.com/blog/faster-javascript-memoization/">Addy Osmani: Faster JS Memoization</a>
+						</section>
+						<section>
+							<h2>Implement general Memoize</h2>
+							<pre><code class="largeCode" contenteditable>
+
+function fooBar(a){ ... }
+// once a memoizer is available, usage is as simple as
+var memoFooBar = fooBar.memoize();
+memoFooBar(1);
+// are conducted. This result is then cached for next time.
+memoFooBar(1); // will now return the cached result
+memoFooBar(2); // whilst this will need to be calculated
+							</code></pre>
+							<a href="https://github.com/addyosmani/memoize.js/blob/master/memoize.js">Addy Osmani: Optimized Memoization Library</a>
+						</section>
+					</section>
+		
+					<section>
+						<section>
+							<h1 class="upholdHeader"> JavaScript Others</h1>
+						</section>						
+						<section>
+							<h1 class="upholdHeader">Reduce Global</h1>
+							<pre><code>
+var current = null;
+function init(){...}
+function change(){...}
+function verify(){...}
+							</code></pre>
+							<pre class="fragment"><code>
+var myNameSpace = {
+  current:null,
+  init:function(){...},
+  change:function(){...},
+  verify:function(){...}
+}
+
+myNameSpace.init();
+
+							</code></pre>
+							<a href="http://www.w3.org/wiki/JavaScript_best_practices">W3.org JS best practice</a>
+							<br/>
+							<a href="http://thanpol.as/javascript/development-using-namespaces/">Develop with Namespace</a>
+							<br/>
+							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">JS 24 best practices</a>
+						</section>
+						<section>
+							<h2>Self executing</h2>
+							<pre><code>
+(function(){
+  var current = null;
+  function init(){...}
+  function change(){...}
+  function verify(){...}
+})();							
+							</code></pre>
+							<pre class="fragment"><code>
+(function( skillet, $, undefined ) {
+    //Private Property
+    var amountOfGrease = "1 Cup";
+
+    //Public Method
+    skillet.toString = function() {
+        console.log( skillet.quantity + " " + 
+                     skillet.ingredient + " & " + 
+                     amountOfGrease + " of Grease" );
+        console.log( isHot ? "Hot" : "Cold" );
+    };    
+}( window.skillet = window.skillet || {}, jQuery ));								
+							</code></pre>	
+						</section>						
+						<section>
+							<h2>Re-think try-catch</h2>
+							<img src="images/tryCatch.jpg">
+							<a href="http://flippinawesome.org/2013/09/30/rethinking-javascripts-trycatch">Rethink: Try-catch</a>
+							<br/>
+							<a href="http://jsperf.com/try-catch-error-perf/3">JSPerf: try-catch vs if check</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/3217294/javascript-try-catch-performance-vs-error-checking-code">JS: try catch vs Error checking</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/1234343/why-are-empty-catch-blocks-a-bad-idea">Why Empty catch block is bad</a>
+						</section>
+						<section>
+							<h2>Use Strict Mode</h2>
+							<pre><code>
+// Non-strict code...
+ 
+(function(){
+  "use strict";
+ 
+  // Define your library strictly...
+})();
+ 
+// Non-strict code...
+							</code></pre>
+							
+							<a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">John Resig: Strict Mode</a>							
+						</section>
+						<section>
+								<h2>DOM vs innerHTML</h2>
+								<h4>Templating JS vs Mustache</h4>
+								<a href="http://jsperf.com/dom-vs-innerhtml-based-templating">JSPerf: Dom vs innerhtml based templating</a>
+								<br/>
+								<a href="http://mustache.github.io/mustache.5.html">Mustache Manual</a>
+							</section>	
+						<section>
+							<h2 class="upholdHeader">Know Javascript Engine</h2>							
+							<ul>
+								<li>Know V8</li>
+								<li>Hidden Class</li>
+								<li>Avoid Memory Leaks</li>
+								<li>Compile browser</li>
+							</ul>
+							<br/>
+							<a href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">Memory Efficient JS</a>
+						</section>
+					</section>
+					
+					<section>
+						<section>
+							<h1>JQuery</h1>
+							
+							
+						</section>
+						<section>
+							<h2 class="upholdHeader">Don't use it for 3 lines of Code</h2>
+							<pre><code>
+$(document).ready(function () {
+   alert('document is ready. I can sleep now');            
+});
+							</code></pre>
+							<h3 class="fragment">Script as Last Tag of body</h3>
+							<h3 class="fragment">Self Executing function</h3>
+							<pre class="fragment"><code>
+document.onreadystatechange = function () {
+  //docuemnt ready. dont work for older browser or IE
+  if (document.readyState == "complete") {
+      alert('document is ready. I can sleep now');
+  }
+}							</code></pre>
+							<h4 class="fragment">Copy ready: function from JQuery</h4>
+							<a href="http://flippinawesome.org/2013/05/06/5-things-you-should-stop-doing-with-jquery/">5-things-you-should-stop-doing-with-jquery</a>
+						</section>
+						<section>
+							<h2 class="upholdHeader lineThrough">Selector Repetition</h2>
+							<pre><code contenteditable>
+$('#myText').css("color", "blue");
+$('#myText').css("font-size", "1.2em");
+$('#myText').text("Text changed!");	
+							</code></pre> 
+							<pre class="fragment"><code contenteditable>
+//chain it or cache it
+
+$('#myText').css({ "color": "blue", "font-size": "1.2em"}).text("Text changed!");
+							</code></pre> 
+							<pre class="fragment"><code contenteditable>
+//better
+.myClass{
+	color:blue;
+	font-size:1.2em;
+}
+//apply class not style
+$('#myText').addClass('myClass').text("Text changed!");
+							</code></pre> 
+							<br/>
+							<a href="http://www.sitepoint.com/efficient-jquery-selectors/">Efficient JQuery Selector</a>
+						</section>
+						<section>
+							<h3>Use Sub queries</h3>
+							<pre><code>
+&lt;ul class=&quot;nav&quot;&gt;
+  &lt;li&gt;List 1, item 1&lt;/li&gt;
+  &lt;li&gt;List 1, item 2&lt;/li&gt;
+  &lt;li&gt;List 1, item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class=&quot;nav&quot;&gt;
+  &lt;li&gt;List 2, item 1&lt;/li&gt;
+  &lt;li&gt;List 2, item 2&lt;/li&gt;
+  &lt;li&gt;List 2, item 3&lt;/li&gt;
+&lt;/ul&gt;
+							</code></pre>
+							<pre class="fragment"><code>
+$( "ul.nav li:eq(1)" ).css( "backgroundColor", "#ff0" );
+//better								
+$( "ul.nav" ).each(function( index ) {
+  $( this ).find( "li:eq(1)" ).css( "backgroundColor", "#ff0" );
+});
+							</code></pre>
+							<p class="fragment">Remember :=&gt; JQuery is not Database</p>
+							<a href="http://www.artzstudio.com/2009/04/jquery-performance-rules/">jquery-performance-rules</a>
+							<br/>
+							<a href="http://tutorialzine.com/2011/06/15-powerful-jquery-tips-and-tricks-for-developers/">15-powerful-jquery-tips-and-tricks</a>
+						</section>
+						<section>
+							<pre><code>
+&lt;ul id=&quot;resources&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.mozilla.org&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5doctor.com&quot;&gt;HTML5 Doctor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5rocks.com&quot;&gt;HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+							<pre class="fragment"><code>
+$( "#list a" ).on( "click", function( event ) {
+    event.preventDefault();
+    console.log( $( this ).text() );
+});</code></pre>
+<p class="fragment">Doesn't work if you add a new list item</p>
+<pre class="fragment"><code>
+$( "#list" ).on( "click", "a", function( event ) {
+    event.preventDefault();
+    console.log( $( this ).text() );
+});
+</code></pre>
+							<a href="http://coding.smashingmagazine.com/2012/08/17/javascript-events-responding-user/">JS Events</a>	
+							<br>
+							<a href="http://learn.jquery.com/events/event-delegation/">JQuery Event Delegation</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Jquery Also !</h1>
+							<h2 style="color:purple">Right to left</h2>
+							<br/>
+							<br/>
+							<br/>
+							<a href="http://net.tutsplus.com/tutorials/javascript-ajax/quick-tip-think-right-to-left-with-jquery/">Jquery Right to left</a>
+							<br/>
+							<a href="http://24ways.org/2011/your-jquery-now-with-less-suck/"> Your jQuery: Now With 67% Less Suck </a>
+							<br/>
+							<a href="http://jsperf.com/jquery-selector-perf-right-to-left">JSPerf: Jquery Right to Left</a>
+							<br/>
+							<a href="http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left">Why Right to Left</a>
+						</section>
+					</section>
+					<section>
+						<section>							
+							<h2>High Performance Network</h2>
+							<img class="fullScreenImage" src="images/lifeOfARequestParts.png" alt="">
+						</section>
+						<section>
+							<h2>Small is Big</h2>
+							<img src="images/smallIsFaster.jpg" alt="">
+							<p>Every byte counts</p>
+							<h3>Every byte will bite!</h3>
+						</section>
+						<section>
+							<h1>Minify</h1>
+								<a href="http://closure-compiler.appspot.com/home">ggl closure (demo)</a>
+								<br/>
+								<a href="http://jscompress.com/">JS Compress</a>
+								<br/>
+								<a href="http://marijnhaverbeke.nl/uglifyjs">Uglify</a>
+								<br/>
+								<a href="http://crockford.com/javascript/jsmin">JS Min</a>
+								<br/>
+								<br/>
+								<a href="http://csstidy.sourceforge.net/">CSS Tidy</a>
+								<br/>
+								<a href="http://www.minifycss.com/css-compressor/">Minify CSS</a>	
+								<br/>
+								<a href="http://cssminifier.com/">CSS Minifier</a>
+						</section>
+						<section>
+							<h1>Combine</h1>
+
+							<h3>CommonJS, Require JS</h3>
+							<h3>Give the load to Grunt!</h3>
+							<h3>Yo</h3>
+							<a href="http://yeoman.io/">http://yeoman.io</a>
+						</section>
+						<section>							
+							<h1 class="upholdHeader">Order Matters</h1>
+							<h3 class="slide"> Style on Top</h3>
+							<h3 class="slide"> Script on bottom</h3>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=AWF7ZzPyagE&feature=youtu.be&t=58s">Cuzillion demo (youtube)</a>
+							<br/>
+							<br/>
+							<a href="https://developers.google.com/speed/articles/include-scripts-properly">Properly include style and scripts</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Async Vs Defer</h1>
+							<h4>Dont block</h4>
+							<pre><code>
+&lt;script src=&quot;file-a.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;file-b.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;file-c.js&quot; async&gt;&lt;/script&gt;
+							</code></pre>
+							<img class="slide" src="images/asyncVsDefer.jpg">
+							<br/>
+							<a class=" refName" href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">Async Vs Defer</a>
+						</section>
+						<section>
+							<h1>Small in line</h1>
+							<h2>Other than loding different file</h2>
+							<h4>Good for Mobile device</h4>
+						</section>
+						<section>
+							<h1>gZip</h1>
+							<a href="http://www.7-zip.org/">7-zip</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>Jank</h1>
+							<a href="http://jankfree.org/examples/hover.html">jank layers hover scroll</a>
+							<br/>
+							<a href="http://jakearchibald.github.io/jank-invaders/">Jank Invaders</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=mSK70FwUz2A">Debugging and Fixing Jank</a>
+							<br/>
+							<a href="http://jankfree.org/">Jank Free</a>
+							<br/>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Scroll could be scary!</h1>
+							<!-- <p class="purpleBold fragment">Scroll and hover effect at the same time</p> -->
+							<br/>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/scrolling/">Scrolling Performance</a>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/speed/unnecessary-paints/">unnecessary Paints</a>
+						</section>
+						<section>
+							<h2>Something else make Scroll bad!</h2>
+							<ul>
+								<li>position:fixed</li>
+								<li class="fragment">overflow:scroll</li>
+								<li class="fragment">:hover effect</li>
+								<li class="fragment">touch listeners</li>
+								<li class="fragment">Image resize</li>
+							</ul>
+							<a href="http://stackoverflow.com/questions/12969228/chrome-slow-scrolling-with-fixed-position-elements">slow scroll with fixed position</a>
+							<a href="http://jankfree.org/jank-busters-cssconf/template.html#15">Jank-busters</a>
+						</section>
+<!-- 						<section>
+							<h1 class="upholdHeader">abc</h1>
+							<br/>
+							<a href="http://jankfree.org/examples/hover.html">jankFree hover</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Continuous Painting</a>
+						</section> -->
+						<section>
+							<h2>requestAnimationFrame (rAF)</h2>
+							<p class="fragment">Browser dynamically adjust to keep frame rate normal.</p>
+							<ul>
+								<p class="fragment purpleBold">Decouple events from animation</p>
+								<p class="fragment purpleBold">Avoid animation that causes reflow-repaint loops </p>
+								<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">HTML5: faster rFA</a>
+								<br/>
+								<a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">rFA API: sub milisecond precision</a>
+								<br/>
+								<a href="http://caniuse.com/requestanimationframe">can i use: rFA</a>
+							</ul>
+						</section>
+						<section>
+							<h2>Parallax</h2>							
+							<pre><code class="largeCode">
+window.onscroll = function(e) { 
+  var parallax = document.getElementById('parallax-background'); 
+  parallax.style.marginTop = (window.scrollY/2) + 'px';
+ 
+}								
+							</code></pre>
+							<pre class="fragment"><code>
+window.onscroll = function(e) {
+ 
+  // could use prefixes: webkitTransform, mozTransform etc.
+ 
+  var parallax = document.getElementById('parallax-background');
+ 
+  parallax.style.transform = 'translate3d(0px,' + (window.scrollY/2) + 'px, 0px)';
+ 
+}								
+							</code></pre>
+							<a href="http://code.flickr.net/2013/06/04/adventures-in-jank-busting-parallax-performance-and-the-new-flickr-home-page/">Flickr: Parallax</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">Debounce & Throttle</h1>
+							<h2>Defer</h2>
+							<br/>
+							<a href="http://jhankarmahbub.com/presentations/debounce.html">Debounce: Example</a>
+						</section>
+					</section>	
+
+					<section>
+						<section>
+							<h1 class="upholdHeader">Performance Debug</h1>
+							<a href="http://coding.smashingmagazine.com/2012/06/12/javascript-profiling-chrome-developer-tools/">JS Profiling</a>
+							<br/>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/profiles">Profiles</a>
+							<br/>
+							<a href="https://www.youtube.com/watch?v=480JL_WuMt0">Performance Secret: Peter Flynn</a>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Console API</h2>
+							<pre><code>
+//test
+console.assert(myArray.length >5, "More than 5 elements");
+
+//hit count
+console.count("Number of times entered");
+
+//JS represents of Obj
+console.dir(document.body);
+
+//trace
+console.trace();
+							</code></pre>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console">Using the console</a>
+							<br/>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/console-api">Console API</a>
+						</section>
+						<section>
+							<h2>More Console</h2>
+							<pre><code>
+console.time("Array initialize");
+
+var array= new Array(1000000);
+
+for (var i = array.length - 1; i >= 0; i--) {
+    array[i] = new Object();
+};
+
+console.timeEnd("Array initialize");
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Performance Debug</h2>
+							<pre><code contenteditable>
+var start = performance.now();
+
+//execute your function
+foobar();
+
+var end = performance.now();
+
+console.log(start - end +'ms');
+							</code></pre> 
+							<a href="http://www.2ality.com/2013/10/console-api.html">Axel Rauschmayer: JS Console API</a>
+							<a href="https://www.codeschool.com/courses/discover-devtools">CodeSchool: Discover Dev Tools</a>
+							<br/>
+
+						</section>
+						<section>
+							<h1 class="noUppercase">Rectangle</h1>
+								<h3>Settings</h3>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Memory Profiling</h1>
+							<a href="https://developers.google.com/chrome-developer-tools/docs/javascript-memory-profiling">JS Memory Profiling</a>
+							<br/>
+							<a href="http://updates.html5rocks.com/2013/02/Profiling-Long-Paint-Times-with-DevTools-Continuous-Painting-Mode">Long paint times profiling</a>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=hqotCdm6Cx4">Effective Memory management</a>
+							<br/>
+							<a href="https://code.google.com/p/leak-finder-for-javascript/">Leak Finder</a>
+						</section>
+						<section>
+							<h2 class="noUppercase">chrome://tracing</h2>
+							<a href="https://www.youtube.com/watch?v=bMZZOzuJCgk">Tracing paint operations</a>
+							<br/>
+							<a href="http://www.html5rocks.com/en/tutorials/games/abouttracing/">Tracing Flag</a>
+						</section>
+					</section>
+
+					<section>
+						<h1 class="upholdHeader">Break Everything</h1>
+						<br/>
+						<h3>I have said</h3>
+						<p>\</p>
+						<p>/</p>
+						<p>As Long As YOU know what YOU ARE doing</p>
+						<br/>
+
+						<br/><br/>
+						<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Break All the Rules</a><br/>	
+					</section>
+
+					<section>
+						<h1>Review Your Code</h1>
+						<a href="https://groups.google.com/forum/?fromgroups#!forum/jsmentors">JSMentors</a><br/>
+						<a href="http://codereview.stackexchange.com/">Code Review</a>
+					</section>
+					
+									
+									
+					<section>	
+						<section>
+							<h1 class="upholdHeader">Fun with JavaScript</h1>													
+						</section>
+						<section>
+							<h1>Together JS</h1>
+							<a href="https://hacks.mozilla.org/2013/10/introducing-togetherjs/">Mozilla Together JS</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">WAT!</h1>							
+							<a href="https://www.destroyallsoftware.com/talks/wat">Gary Bernhardth CodeMash 2012</a>
+						</section>
+						<section>
+							<h1 class="noUppercase">JS Wizardy</h1>
+							<a href="http://www.youtube.com/watch?v=RTxtiLp1C8Y">Martin Kleppe: JS Conf EU</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">promise().then()</h1>
+							<a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X">JavaScipt Ninja</a>
+							<br/>
+							<a href="http://underscorejs.org/underscore.js">UnderScore or JQuery source code </a>
+							<br/>
+							<a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Network</a>
+							<br/>
+							<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">asm.js: JS compile Target</a>
+							<br/>
+							<a href="http://lodash.com/">Lo-dash</a>
+							<br>
+							<a href="https://newrelic.com/lp/slow-brand">Code Level Performance Data</a>
+						</section>
+						<section>
+							<h2 class="upholdHeader">Take Away</h2>
+							<ul>
+								<li class="fragment">Nothing is absolutely right</li>
+							</ul>
+							<h1 style="color:red" class="fragment">trust Tools, <span class="lineThrough">not Rules<span></h1>
+							<br/>
+							<a href="http://www.youtube.com/watch?v=MFtijdklZDo">Angus Croll: Break all the rules</a>							
+						</section>
+						<section><img src="images/knowWhy.jpg" alt=""></section>
+					</section>
+					<section>
+						<section>
+							<h1>Free Tip</h1>
+						</section>
+						<section>
+							<img src="images/tricks/filter.jpg" alt="">
+						</section>
+					</section>
+					<section>
+						<h1>Thank You</h1>
+						<br/>
+						<h2><a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a> </h2>
+						<br/>
+						<br/>
+						<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+					</section>
+					<section>
+						<section>							
+							<img src="images/question.jpg" alt="">
+							<a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a>
+						</section>
+						<section>							
+							<img src="images/money.jpg" alt="">
+							<a href="http://bit.ly/1gx0FRU">http://bit.ly/1gx0FRU</a>
+						</section>
+					</section>
+
+				</div>
+
+			</div>
+
+			<script src="lib/js/head.min.js"></script>
+			<script src="js/reveal.min.js"></script>
+
+			<script>
+
+				// Full list of configuration options available here:
+				// https://github.com/hakimel/reveal.js#configuration
+				Reveal.initialize({
+					controls: true,
+					progress: true,
+					history: true,
+
+					theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+					transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+					// Optional libraries used to extend on reveal.js
+					dependencies: [
+						{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+						{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+						{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+						{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+						{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					]
+				});
+
+			</script>
+
+		</body>
+	</html>
